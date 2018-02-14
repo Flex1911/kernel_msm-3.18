@@ -14,6 +14,7 @@
 #include <linux/slab.h>
 #include <linux/tty.h>
 #include <linux/tty_flip.h>
+#include <linux/pinctrl/consumer.h>
 
 /* UART specific GENI registers */
 #define SE_UART_TX_TRANS_CFG		0x25c
