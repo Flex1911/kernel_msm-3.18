@@ -80,9 +80,6 @@ struct iproc_pcie {
 	u16 *reg_offsets;
 	void __iomem *base;
 	phys_addr_t base_addr;
-#ifdef CONFIG_ARM
-	struct pci_sys_data sysdata;
-#endif
 	struct resource mem;
 	struct pci_bus *root_bus;
 	struct phy *phy;
