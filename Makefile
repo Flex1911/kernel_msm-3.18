@@ -1513,6 +1513,11 @@ PHONY += $(DOC_TARGETS)
 $(DOC_TARGETS): scripts_basic FORCE
 	$(Q)$(MAKE) $(build)=Documentation $@
 
+DT_DOC_TARGETS := checkbindings
+PHONY += $(DT_DOC_TARGETS)
+$(DT_DOC_TARGETS): scripts_basic FORCE
+	$(Q)$(MAKE) $(build)=Documentation/devicetree/bindings/ $@
+
 else # KBUILD_EXTMOD
 
 ###
