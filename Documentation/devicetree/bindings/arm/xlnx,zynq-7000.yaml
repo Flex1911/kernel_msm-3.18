@@ -1,0 +1,24 @@
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/soc/arm/xlnx,zynq-7000.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+version: 1
+
+title: Xilinx Zynq Platforms Device Tree Bindings
+
+maintainers:
+  - Michal Simek <michal.simek@xilinx.com>
+
+description: |
+  Boards with Zynq-7000 SOC based on an ARM Cortex A9 processor
+  shall have the following properties.
+
+properties:
+  compatible:
+    items:
+      - enum:
+          - "adapteva,parallella"
+      - const: "xlnx,zynq-7000"
+    minItems: 2
+    maxItems: 2
+    additionalItems: false
