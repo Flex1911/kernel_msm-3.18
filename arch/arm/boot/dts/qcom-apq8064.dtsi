@@ -9,6 +9,7 @@
 #include <dt-bindings/soc/qcom,gsbi.h>
 #include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/soc/qcom,apr.h>
 / {
 	model = "Qualcomm APQ8064";
 	compatible = "qcom,apq8064";
@@ -235,8 +236,40 @@
 
 			qcom,ipc = <&l2cc 8 15>;
 			qcom,smd-edge = <1>;
+				apr {
+					compatible = "qcom,apr-v2";
+					qcom,smd-channels = "apr_audio_svc";
+					qcom,apr-dest-domain-id = <APR_DOMAIN_ADSP>;
+	
+					q6core {
+						qcom,apr-svc-name = "CORE";
+						qcom,apr-svc-id = <APR_SVC_ADSP_CORE>;
+						compatible = "qcom,q6core";
+					};
+	
+					q6afe: q6afe {
+						compatible = "qcom,q6afe";
+						qcom,apr-svc-name = "AFE";
+						qcom,apr-svc-id = <APR_SVC_AFE>;
+						#sound-dai-cells = <1>;
+					};
+	
+					q6asm: q6asm {
+						compatible = "qcom,q6asm";
+						qcom,apr-svc-name = "ASM";
+						qcom,apr-svc-id = <APR_SVC_ASM>;
+						#sound-dai-cells = <1>;
+					};
+	
+					q6adm: q6adm {
+						compatible = "qcom,q6adm";
+						qcom,apr-svc-name = "ADM";
+						qcom,apr-svc-id = <APR_SVC_ADM>;
+						#sound-dai-cells = <0>;
+					};
+	
+				};
 
-			status = "disabled";
 		};
 
 		dsps@3 {
@@ -316,6 +349,14 @@
 		};
 	};
 
+	clocks {
+		sleep_clk: sleep_clk {
+			compatible = "fixed-clock";
+			clock-frequency = <32768>;
+			#clock-cells = <0>;
+		};
+	};
+
 	soc: soc {
 		#address-cells = <1>;
 		#size-cells = <1>;
@@ -359,6 +400,13 @@
 			clock-frequency = <27000000>,
 					  <32768>;
 			cpu-offset = <0x80000>;
+		};
+
+		watchdog@208a038 {
+			compatible = "qcom,kpss-wdt-apq8064";
+			reg = <0x0208a038 0x40>;
+			clocks = <&sleep_clk>;
+			timeout-sec = <10>;
 		};
 
 		acc0: clock-controller@2088000 {
@@ -444,6 +492,7 @@
 				clock-names = "core", "iface";
 				#address-cells = <1>;
 				#size-cells = <0>;
+				status = "disabled";
 			};
 
 		};
@@ -472,6 +521,7 @@
 				clock-names = "core", "iface";
 				#address-cells = <1>;
 				#size-cells = <0>;
+				status = "disabled";
 			};
 		};
 
@@ -497,6 +547,7 @@
 				clock-names = "core", "iface";
 				#address-cells = <1>;
 				#size-cells = <0>;
+				status = "disabled";
 			};
 		};
 
@@ -521,6 +572,7 @@
 				clocks = <&gcc GSBI4_QUP_CLK>,
 					 <&gcc GSBI4_H_CLK>;
 				clock-names = "core", "iface";
+				status = "disabled";
 			};
 		};
 
@@ -570,6 +622,7 @@
 			#address-cells = <1>;
 			#size-cells = <1>;
 			ranges;
+			syscon-tcsr = <&tcsr>;
 
 			gsbi6_serial: serial@16540000 {
 				compatible = "qcom,msm-uartdm-v1.3", "qcom,msm-uartdm";
@@ -578,6 +631,13 @@
 				interrupts = <0 156 0x0>;
 				clocks = <&gcc GSBI6_UART_CLK>, <&gcc GSBI6_H_CLK>;
 				clock-names = "core", "iface";
+
+				qcom,rx-crci = <11>;
+				qcom,tx-crci = <6>;
+
+				dmas = <&adm 6>, <&adm 7>;
+				dma-names = "rx", "tx";
+
 				status = "disabled";
 			};
 
@@ -1109,6 +1169,26 @@
 			};
 		};
 
+		adm: dma@18320000 {
+			compatible = "qcom,adm";
+			reg = <0x18320000 0xE0000>;
+			interrupts = <GIC_SPI 171 IRQ_TYPE_NONE>;
+			#dma-cells = <1>;
+
+			clocks = <&gcc ADM0_CLK>, <&gcc ADM0_PBUS_CLK>;
+			clock-names = "core", "iface";
+
+			resets = <&gcc ADM0_RESET>,
+				 <&gcc ADM0_PBUS_RESET>,
+				 <&gcc ADM0_C0_RESET>,
+				 <&gcc ADM0_C1_RESET>,
+				 <&gcc ADM0_C2_RESET>;
+			reset-names = "clk", "pbus", "c0", "c1", "c2";
+			qcom,ee = <1>;
+
+			status = "disabled";
+		};
+
 		tcsr: syscon@1a400000 {
 			compatible = "qcom,tcsr-apq8064", "syscon";
 			reg = <0x1a400000 0x100>;
@@ -1376,6 +1456,26 @@
 			status = "disabled";
 		};
 
+		pil_q6v4: pil@28800000 {
+			compatible	= "qcom,tz-pil", "qcom,apq8064-tz-pil";
+			qcom,firmware-name = "q6";
+			reg		= <0x28800000 0x100>;
+			reg-names	= "qdsp6_base";
+			qcom,pas-id		= <1>; /* PAS_Q6 */
+
+
+			smd-edge {
+				interrupts = <GIC_SPI 90 IRQ_TYPE_EDGE_RISING>;
+				lable = "lpass";
+				qcom,ipc = <&l2cc 8 15>;
+				qcom,smd-edge = <1>;
+
+				status = "okay";
+
+			};
+
+		};
+
 		hdmi: hdmi-tx@4a00000 {
 			compatible = "qcom,hdmi-tx-8960";
 			pinctrl-names = "default";
@@ -1392,6 +1492,7 @@
 
 			phys = <&hdmi_phy>;
 			phy-names = "hdmi-phy";
+			#sound-dai-cells = <1>;
 
 			ports {
 				#address-cells = <1>;
@@ -1474,6 +1575,8 @@
 				};
 			};
 		};
+
+
 
 		riva: riva-pil@3204000 {
 			compatible = "qcom,riva-pil";
