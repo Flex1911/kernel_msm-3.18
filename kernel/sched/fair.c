@@ -18,6 +18,8 @@
  *
  *  Adaptive scheduling granularity, math enhancements by Peter Zijlstra
  *  Copyright (C) 2007 Red Hat, Inc., Peter Zijlstra <pzijlstr@redhat.com>
+ *
+ *  Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #include <linux/latencytop.h>

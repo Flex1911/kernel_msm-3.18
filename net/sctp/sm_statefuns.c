@@ -4,6 +4,7 @@
  * Copyright (c) 1999-2001 Motorola, Inc.
  * Copyright (c) 2001-2002 Intel Corp.
  * Copyright (c) 2002      Nokia Corp.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This is part of the SCTP Linux Kernel Implementation.
  *

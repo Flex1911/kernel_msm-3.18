@@ -1,13 +1,14 @@
 /*
- *  linux/arch/arm/mm/dma-mapping.c
+ * linux/arch/arm/mm/dma-mapping.c
  *
- *  Copyright (C) 2000-2004 Russell King
+ * Copyright (C) 2000-2004 Russell King
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  *
- *  DMA uncached mapping support.
+ * DMA uncached mapping support.
  */
 #include <linux/bootmem.h>
 #include <linux/module.h>

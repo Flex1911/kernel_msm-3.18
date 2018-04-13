@@ -1,6 +1,7 @@
 /*
  * Copyright 2011 Red Hat Inc.
  * All Rights Reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the

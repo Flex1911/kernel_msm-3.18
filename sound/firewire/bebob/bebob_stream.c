@@ -2,6 +2,7 @@
  * bebob_stream.c - a part of driver for BeBoB based devices
  *
  * Copyright (c) 2013-2014 Takashi Sakamoto
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Licensed under the terms of the GNU General Public License, version 2.
  */

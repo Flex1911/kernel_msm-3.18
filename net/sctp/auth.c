@@ -1,5 +1,6 @@
 /* SCTP kernel implementation
  * (C) Copyright 2007 Hewlett-Packard Development Company, L.P.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is part of the SCTP kernel implementation
  *

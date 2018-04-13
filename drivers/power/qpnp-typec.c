@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -676,6 +677,9 @@ static int qpnp_typec_request_irqs(struct qpnp_typec_chip *chip)
 static enum power_supply_property qpnp_typec_properties[] = {
 	POWER_SUPPLY_PROP_CURRENT_CAPABILITY,
 	POWER_SUPPLY_PROP_TYPE,
+#ifdef CONFIG_XIAOMI_D2
+	POWER_SUPPLY_PROP_ORIENTATION,
+#endif
 };
 
 static int qpnp_typec_get_property(struct power_supply *psy,
@@ -692,6 +696,11 @@ static int qpnp_typec_get_property(struct power_supply *psy,
 	case POWER_SUPPLY_PROP_CURRENT_CAPABILITY:
 		val->intval = chip->current_ma;
 		break;
+#ifdef CONFIG_XIAOMI_D2
+	case POWER_SUPPLY_PROP_ORIENTATION:
+		val->intval = chip->cc_line_state;
+		break;
+#endif
 	default:
 		return -EINVAL;
 	}

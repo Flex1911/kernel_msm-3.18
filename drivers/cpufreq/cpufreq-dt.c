@@ -4,6 +4,8 @@
  * Copyright (C) 2014 Linaro.
  * Viresh Kumar <viresh.kumar@linaro.org>
  *
+ * Copyright (C) 2018 XiaoMi, Inc.
+ *
  * The OPP code in function set_target() is reused from
  * drivers/cpufreq/omap-cpufreq.c
  *

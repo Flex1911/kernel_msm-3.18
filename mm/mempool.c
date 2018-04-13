@@ -7,6 +7,7 @@
  *
  *  started by Ingo Molnar, Copyright (C) 2001
  *  debugging by David Rientjes, Copyright (C) 2015
+ *  Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #include <linux/mm.h>

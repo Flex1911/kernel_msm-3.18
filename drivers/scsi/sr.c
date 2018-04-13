@@ -6,6 +6,7 @@
  *      sd.c Copyright (C) 1992 Drew Eckhardt
  *      Linux scsi disk driver by
  *              Drew Eckhardt <drew@colorado.edu>
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  *	Modified by Eric Youngdale ericy@andante.org to
  *	add scatter-gather, multiple outstanding request, and other

@@ -7,6 +7,7 @@
  *
  * Copyright (C) 2001-2005 Tensilica Inc.
  *   Authors	Christian Zankel, Joe Taylor
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #include <linux/module.h>

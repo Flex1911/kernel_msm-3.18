@@ -302,7 +302,7 @@ config MSM_11AD
 
 config BW_MONITOR
 	bool "Bandwidth monitor driver"
-        depends on BUS_TOPOLOGY_ADHOC && THERMAL
+	depends on BUS_TOPOLOGY_ADHOC && THERMAL
 	help
 	 Enable this module if any bandwidth of a bus needs to be
 	 monitored and limited by thermal core framework. It does

@@ -2,6 +2,7 @@
  * This file is part of wl1271
  *
  * Copyright (C) 2008-2009 Nokia Corporation
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Contact: Luciano Coelho <luciano.coelho@nokia.com>
  *

@@ -8,6 +8,7 @@
  *
  * Copyright (c) 2011 by:
  *	 Mauro Carvalho Chehab
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #include <linux/module.h>

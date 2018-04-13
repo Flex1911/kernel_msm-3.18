@@ -3,6 +3,8 @@
  *
  *  Author(s):
  *    Jan Glauber <jang@linux.vnet.ibm.com>
+ *
+ *  Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #define KMSG_COMPONENT "zpci"

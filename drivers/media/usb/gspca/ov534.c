@@ -4,6 +4,7 @@
  * Copyright (C) 2008 Antonio Ospite <ospite@studenti.unina.it>
  * Copyright (C) 2008 Jim Paris <jim@jtan.com>
  * Copyright (C) 2009 Jean-Francois Moine http://moinejf.free.fr
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Based on a prototype written by Mark Ferrell <majortrips@gmail.com>
  * USB protocol reverse engineered by Jim Paris <jim@jtan.com>

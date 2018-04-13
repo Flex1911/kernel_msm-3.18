@@ -5,6 +5,7 @@
  *    Original 3270 Code for 2.4 written by Richard Hitt (UTS Global)
  *    Rewritten for 2.5 by Martin Schwidefsky <schwidefsky@de.ibm.com>
  *	-- Copyright IBM Corp. 2003
+ *         Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #include <linux/module.h>

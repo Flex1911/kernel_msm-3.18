@@ -616,6 +616,11 @@ config MSM_BCL_PERIPHERAL_CTL
 	  provides routines to configure and monitor the BCL
 	  PMIC peripheral.
 
+config PROJECT_VINCE
+	bool "XIAOMI E7 use"
+	---help---
+	diff fast charging and normal charging in E7 project.
+
 source "drivers/power/reset/Kconfig"
 
 endif # POWER_SUPPLY

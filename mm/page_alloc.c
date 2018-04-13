@@ -12,6 +12,7 @@
  *  Zone balancing, Kanoj Sarcar, SGI, Jan 2000
  *  Per cpu hot/cold page lists, bulk allocation, Martin J. Bligh, Sept 2002
  *          (lots of bits borrowed from Ingo Molnar & Andrew Morton)
+ *  Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #include <linux/stddef.h>
@@ -1211,7 +1212,7 @@ static int find_suitable_fallback(struct free_area *area, unsigned int order,
 	int fallback_mt;
 
 	if (area->nr_free == 0)
-		return -1;
+		return -EPERM;
 
 	*can_steal = false;
 	for (i = 0;; i++) {
@@ -1228,7 +1229,7 @@ static int find_suitable_fallback(struct free_area *area, unsigned int order,
 		return fallback_mt;
 	}
 
-	return -1;
+	return -EPERM;
 }
 
 /* Remove an element from the buddy allocator from the fallback list */
@@ -1259,8 +1260,8 @@ __rmqueue_fallback(struct zone *zone, unsigned int order, int start_migratetype)
 		/* Remove the page from the freelists */
 		area->nr_free--;
 
-                if (is_migrate_cma(fallback_mt))
-                        area->nr_free_cma--;
+				if (is_migrate_cma(fallback_mt))
+						area->nr_free_cma--;
 		list_del(&page->lru);
 		rmv_page_order(page);
 

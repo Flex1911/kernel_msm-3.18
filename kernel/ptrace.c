@@ -2,6 +2,7 @@
  * linux/kernel/ptrace.c
  *
  * (C) Copyright 1999 Linus Torvalds
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Common interfaces for "ptrace()" which we do not want
  * to continually duplicate across every architecture.

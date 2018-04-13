@@ -4,6 +4,8 @@
  * Author(s):
  *   Jan Glauber <jang@linux.vnet.ibm.com>
  *
+ * Copyright (C) 2018 XiaoMi, Inc.
+ *
  * The System z PCI code is a rewrite from a prototype by
  * the following people (Kudoz!):
  *   Alexander Schmidt

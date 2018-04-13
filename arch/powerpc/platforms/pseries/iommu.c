@@ -5,6 +5,7 @@
  *
  * Copyright (C) 2004 Olof Johansson <olof@lixom.net>, IBM Corporation
  * Copyright (C) 2006 Olof Johansson <olof@lixom.net>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Dynamic DMA mapping support, pSeries-specific parts, both SMP and LPAR.
  *

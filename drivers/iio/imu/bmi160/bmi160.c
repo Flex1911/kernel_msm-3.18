@@ -1,6 +1,7 @@
 /*
 * @section LICENSE
  * (C) Copyright 2011~2015 Bosch Sensortec GmbH All Rights Reserved
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This software program is licensed subject to the GNU General
  * Public License (GPL).Version 2,June 1991,

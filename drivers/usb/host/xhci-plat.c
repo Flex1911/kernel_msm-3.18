@@ -3,6 +3,7 @@
  *
  * Copyright (C) 2012 Texas Instruments Incorporated - http://www.ti.com
  * Author: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * A lot of code borrowed from the Linux xHCI driver.
  *

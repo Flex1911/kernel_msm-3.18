@@ -2,6 +2,7 @@
  *
  * Copyright (C) 2013 Geschwister Schneider Technologie-,
  * Entwicklungs- und Vertriebs UG (Haftungsbeschränkt).
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Many thanks to all socketcan devs!
  *

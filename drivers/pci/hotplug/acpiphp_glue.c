@@ -8,6 +8,7 @@
  * Copyright (C) 2003-2005 Hewlett Packard
  * Copyright (C) 2005 Rajesh Shah (rajesh.shah@intel.com)
  * Copyright (C) 2005 Intel Corporation
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * All rights reserved.
  *

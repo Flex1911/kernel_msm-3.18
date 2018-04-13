@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2011-2012 Red Hat UK.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is released under the GPL.
  */

@@ -7,6 +7,7 @@
  * See Documentation/trace/tracepoints.txt.
  *
  * Copyright (C) 2008-2014 Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Heavily inspired from the Linux Kernel Markers.
  *

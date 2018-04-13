@@ -7,6 +7,7 @@
  * Copyright (C) 2008 Qumranet, Inc.
  * Copyright IBM Corporation, 2008
  * Copyright 2010 Red Hat, Inc. and/or its affiliates.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Authors:
  *   Avi Kivity   <avi@qumranet.com>

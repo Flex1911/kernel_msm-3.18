@@ -3,6 +3,7 @@
  *
  *  Copyright (C) 2002-2003 Deep Blue Solutions Ltd, all rights reserved.
  *  Copyright (C) 2012 ARM Limited
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  *  Author: Will Deacon <will.deacon@arm.com>
  *

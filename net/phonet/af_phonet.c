@@ -4,6 +4,7 @@
  * Phonet protocols family
  *
  * Copyright (C) 2008 Nokia Corporation.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Authors: Sakari Ailus <sakari.ailus@nokia.com>
  *          Rémi Denis-Courmont

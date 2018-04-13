@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001, 2002 Sistina Software (UK) Limited.
  * Copyright (C) 2004 - 2006 Red Hat, Inc. All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is released under the GPL.
  */

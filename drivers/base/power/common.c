@@ -2,6 +2,7 @@
  * drivers/base/power/common.c - Common device power management code.
  *
  * Copyright (C) 2011 Rafael J. Wysocki <rjw@sisk.pl>, Renesas Electronics Corp.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is released under the GPLv2.
  */

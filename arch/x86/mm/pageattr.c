@@ -1,6 +1,7 @@
 /*
  * Copyright 2002 Andi Kleen, SuSE Labs.
  * Thanks to Ben LaHaise for precious feedback.
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 #include <linux/highmem.h>
 #include <linux/bootmem.h>

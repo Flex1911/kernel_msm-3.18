@@ -3,6 +3,7 @@
  *
  * Copyright (C) 2005 John Lenz <lenz@cs.wisc.edu>
  * Copyright (C) 2005-2007 Richard Purdie <rpurdie@openedhand.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -48,11 +49,9 @@ static ssize_t brightness_store(struct device *dev,
 		ret = -EBUSY;
 		goto unlock;
 	}
-
 	ret = kstrtoul(buf, 10, &state);
 	if (ret)
 		goto unlock;
-
 	led_cdev->usr_brightness_req = state;
 	__led_set_brightness(led_cdev, state);
 

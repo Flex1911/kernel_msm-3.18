@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2010 Kent Overstreet <kent.overstreet@gmail.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Uses a block device as cache for other block devices; optimized for SSDs.
  * All allocation is done in buckets, which should match the erase block size
@@ -2163,10 +2164,10 @@ int bch_btree_insert_check_key(struct btree *b, struct btree_op *op,
 		rw_lock(true, b, b->level);
 
 		if (b->key.ptr[0] != btree_ptr ||
-                   b->seq != seq + 1) {
-                       op->lock = b->level;
+				   b->seq != seq + 1) {
+					   op->lock = b->level;
 			goto out;
-               }
+			   }
 	}
 
 	SET_KEY_PTRS(check_key, 1);

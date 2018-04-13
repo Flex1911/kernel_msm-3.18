@@ -9,6 +9,7 @@
  *  Copyright (c) 2006-2013 Jiri Kosina
  *  Copyright (c) 2013 Colin Leitner <colin.leitner@gmail.com>
  *  Copyright (c) 2014 Frank Praznik <frank.praznik@gmail.com>
+ *  Copyright (C) 2018 XiaoMi, Inc.
  */
 
 /*

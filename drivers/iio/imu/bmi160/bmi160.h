@@ -1,6 +1,7 @@
 /*
 * @section LICENSE
  * (C) Copyright 2011~2015 Bosch Sensortec GmbH All Rights Reserved
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This software program is licensed subject to the GNU General
  * Public License (GPL).Version 2,June 1991,
@@ -85,7 +86,7 @@
 * subject to change without notice.
 **************************************************************************/
 /*! \file bmi160.h
-    \brief BMI160 Sensor Driver Support Header File */
+	\brief BMI160 Sensor Driver Support Header File */
 /* user defined code to be added here ... */
 #ifndef __BMI160_H__
 #define __BMI160_H__
@@ -327,18 +328,18 @@ define the data types manually
 	@note This includes types of parameters. This example shows the
 	configuration for an SPI bus link.
 
-    If your communication function looks like this:
+	If your communication function looks like this:
 
-    write_my_bus_xy(u8 device_addr, u8 register_addr,
-    u8 * data, u8 length);
+	write_my_bus_xy(u8 device_addr, u8 register_addr,
+	u8 * data, u8 length);
 
-    The BMI160_WR_FUNC_PTR would equal:
+	The BMI160_WR_FUNC_PTR would equal:
 
-    BMI160_WR_FUNC_PTR s8 (* bus_write)(u8,
-    u8, u8 *, u8)
+	BMI160_WR_FUNC_PTR s8 (* bus_write)(u8,
+	u8, u8 *, u8)
 
-    Parameters can be mixed as needed refer to the
-    @ref BMI160_BUS_WRITE_FUNC  macro.
+	Parameters can be mixed as needed refer to the
+	@ref BMI160_BUS_WRITE_FUNC  macro.
 
 
 */
@@ -348,20 +349,20 @@ u8 *, u8)
 	@note The bus write function can change since this is a
 	system dependant issue.
 
-    If the bus_write parameter calling order is like: reg_addr,
-    reg_data, wr_len it would be as it is here.
+	If the bus_write parameter calling order is like: reg_addr,
+	reg_data, wr_len it would be as it is here.
 
-    If the parameters are differently ordered or your communication
-    function like I2C need to know the device address,
-    you can change this macro accordingly.
+	If the parameters are differently ordered or your communication
+	function like I2C need to know the device address,
+	you can change this macro accordingly.
 
 
-    BMI160_BUS_WRITE_FUNC(dev_addr, reg_addr, reg_data, wr_len)\
-    bus_write(dev_addr, reg_addr, reg_data, wr_len)
+	BMI160_BUS_WRITE_FUNC(dev_addr, reg_addr, reg_data, wr_len)\
+	bus_write(dev_addr, reg_addr, reg_data, wr_len)
 
-    This macro lets all API functions call YOUR communication routine in a
-    way that equals your definition in the
-    @ref BMI160_WR_FUNC_PTR definition.
+	This macro lets all API functions call YOUR communication routine in a
+	way that equals your definition in the
+	@ref BMI160_WR_FUNC_PTR definition.
 
 */
 #define BMI160_BUS_WRITE_FUNC(dev_addr, reg_addr, reg_data, wr_len)\
@@ -371,18 +372,18 @@ u8 *, u8)
 	@note This includes types of parameters. This example shows the
 	configuration for an SPI bus link.
 
-    If your communication function looks like this:
+	If your communication function looks like this:
 
-    read_my_bus_xy(u8 device_addr, u8 register_addr,
-    u8 * data, u8 length);
+	read_my_bus_xy(u8 device_addr, u8 register_addr,
+	u8 * data, u8 length);
 
-    The BMI160_RD_FUNC_PTR would equal:
+	The BMI160_RD_FUNC_PTR would equal:
 
-    BMI160_RD_FUNC_PTR s8 (* bus_read)(u8,
-    u8, u8 *, u8)
+	BMI160_RD_FUNC_PTR s8 (* bus_read)(u8,
+	u8, u8 *, u8)
 
-    Parameters can be mixed as needed refer to the
-    refer BMI160_BUS_READ_FUNC  macro.
+	Parameters can be mixed as needed refer to the
+	refer BMI160_BUS_READ_FUNC  macro.
 
 */
 #define BMI160_SPI_RD_MASK (0x80)   /* for spi read transactions on SPI the
@@ -397,23 +398,23 @@ u8 *, u8)
 	@note The bus write function can change since this is a
 	system dependant issue.
 
-    If the bus_read parameter calling order is like: reg_addr,
-    reg_data, wr_len it would be as it is here.
+	If the bus_read parameter calling order is like: reg_addr,
+	reg_data, wr_len it would be as it is here.
 
-    If the parameters are differently ordered or your communication
-    function like I2C need to know the device address,
-    you can change this macro accordingly.
+	If the parameters are differently ordered or your communication
+	function like I2C need to know the device address,
+	you can change this macro accordingly.
 
 
-    BMI160_BUS_READ_FUNC(dev_addr, reg_addr, reg_data, wr_len)\
-    bus_read(dev_addr, reg_addr, reg_data, wr_len)
+	BMI160_BUS_READ_FUNC(dev_addr, reg_addr, reg_data, wr_len)\
+	bus_read(dev_addr, reg_addr, reg_data, wr_len)
 
-    This macro lets all API functions call YOUR communication routine in a
-    way that equals your definition in the
-    refer BMI160_WR_FUNC_PTR definition.
+	This macro lets all API functions call YOUR communication routine in a
+	way that equals your definition in the
+	refer BMI160_WR_FUNC_PTR definition.
 
-    @note: this macro also includes the "MSB='1'
-    for reading BMI160 addresses.
+	@note: this macro also includes the "MSB='1'
+	for reading BMI160 addresses.
 
 */
 #define BMI160_BUS_READ_FUNC(dev_addr, reg_addr, reg_data, r_len)\
@@ -1147,12 +1148,12 @@ static const s8 INVALID_OFFSET[] = {0x7f, 0x7f, 0x7f};
 *	This structure holds all relevant information about bmi160
 */
 struct bmi160_t {
-u8 chip_id;/**< chip id of BMI160 */
-u8 dev_addr;/**< device address of BMI160 */
-s8 mag_manual_enable;/**< used for check the mag manual/auto mode status */
-BMI160_WR_FUNC_PTR;/**< bus write function pointer */
-BMI160_RD_FUNC_PTR;/**< bus read function pointer */
-BMI160_BRD_FUNC_PTR;/**< burst write function pointer */
+	u8 chip_id;/**< chip id of BMI160 */
+	u8 dev_addr;/**< device address of BMI160 */
+	s8 mag_manual_enable;/**< used for check the mag manual/auto mode status */
+	BMI160_WR_FUNC_PTR;/**< bus write function pointer */
+	BMI160_RD_FUNC_PTR;/**< bus read function pointer */
+	BMI160_BRD_FUNC_PTR;/**< burst write function pointer */
 void (*delay_msec)(BMI160_MDELAY_DATA_TYPE);/**< delay function pointer */
 };
 /*!
@@ -1161,100 +1162,100 @@ void (*delay_msec)(BMI160_MDELAY_DATA_TYPE);/**< delay function pointer */
  *	z-axis in s16
  */
 struct bmi160_mag_t {
-s16 x;/**< BMM150 and AKM09911 and AKM09912 X raw data*/
-s16 y;/**< BMM150 and AKM09911 and AKM09912 Y raw data*/
-s16 z;/**< BMM150 and AKM09911 and AKM09912 Z raw data*/
+	s16 x;/**< BMM150 and AKM09911 and AKM09912 X raw data*/
+	s16 y;/**< BMM150 and AKM09911 and AKM09912 Y raw data*/
+	s16 z;/**< BMM150 and AKM09911 and AKM09912 Z raw data*/
 };
 /*!
  * @brief Structure containing bmm150 xyz data and temperature
  */
 struct bmi160_mag_xyzr_t {
-s16 x;/**< BMM150 X raw data*/
-s16 y;/**< BMM150 Y raw data*/
-s16 z;/**<BMM150 Z raw data*/
-u16 r;/**<BMM150 R raw data*/
+	s16 x;/**< BMM150 X raw data*/
+	s16 y;/**< BMM150 Y raw data*/
+	s16 z;/**<BMM150 Z raw data*/
+	u16 r;/**<BMM150 R raw data*/
 };
 /*!
  * @brief Structure containing gyro xyz data
  */
 struct bmi160_gyro_t {
-s16 x;/**<gyro X  data*/
-s16 y;/**<gyro Y  data*/
-s16 z;/**<gyro Z  data*/
+	s16 x;/**<gyro X  data*/
+	s16 y;/**<gyro Y  data*/
+	s16 z;/**<gyro Z  data*/
 };
 /*!
  * @brief Structure containing accel xyz data
  */
 struct bmi160_accel_t {
-s16 x;/**<accel X  data*/
-s16 y;/**<accel Y  data*/
-s16 z;/**<accel Z  data*/
+	s16 x;/**<accel X  data*/
+	s16 y;/**<accel Y  data*/
+	s16 z;/**<accel Z  data*/
 };
 /*!
  * @brief Structure bmm150 mag compensated data with s32 output
  */
 struct bmi160_mag_xyz_s32_t {
-s16 x;/**<BMM150 X compensated data*/
-s16 y;/**<BMM150 Y compensated data*/
-s16 z;/**<BMM150 Z compensated data*/
+	s16 x;/**<BMM150 X compensated data*/
+	s16 y;/**<BMM150 Y compensated data*/
+	s16 z;/**<BMM150 Z compensated data*/
 };
 /*!
  * @brief Structure bmm150 mag trim data
  */
 struct trim_data_t {
-s8 dig_x1;/**<BMM150 trim x1 data*/
-s8 dig_y1;/**<BMM150 trim y1 data*/
+	s8 dig_x1;/**<BMM150 trim x1 data*/
+	s8 dig_y1;/**<BMM150 trim y1 data*/
 
-s8 dig_x2;/**<BMM150 trim x2 data*/
-s8 dig_y2;/**<BMM150 trim y2 data*/
+	s8 dig_x2;/**<BMM150 trim x2 data*/
+	s8 dig_y2;/**<BMM150 trim y2 data*/
 
-u16 dig_z1;/**<BMM150 trim z1 data*/
-s16 dig_z2;/**<BMM150 trim z2 data*/
-s16 dig_z3;/**<BMM150 trim z3 data*/
-s16 dig_z4;/**<BMM150 trim z4 data*/
+	u16 dig_z1;/**<BMM150 trim z1 data*/
+	s16 dig_z2;/**<BMM150 trim z2 data*/
+	s16 dig_z3;/**<BMM150 trim z3 data*/
+	s16 dig_z4;/**<BMM150 trim z4 data*/
 
-u8 dig_xy1;/**<BMM150 trim xy1 data*/
-s8 dig_xy2;/**<BMM150 trim xy2 data*/
+	u8 dig_xy1;/**<BMM150 trim xy1 data*/
+	s8 dig_xy2;/**<BMM150 trim xy2 data*/
 
-u16 dig_xyz1;/**<BMM150 trim xyz1 data*/
+	u16 dig_xyz1;/**<BMM150 trim xyz1 data*/
 };
 
 /*!
 *	@brief Structure for reading AKM compensating data
 */
 struct bst_akm_sensitivity_data_t {
-u8 asax;/**<AKM09911 and AKM09912 X sensitivity data*/
-u8 asay;/**<AKM09911 and AKM09912 Y sensitivity data*/
-u8 asaz;/**<AKM09911 and AKM09912 Z sensitivity data*/
+	u8 asax;/**<AKM09911 and AKM09912 X sensitivity data*/
+	u8 asay;/**<AKM09911 and AKM09912 Y sensitivity data*/
+	u8 asaz;/**<AKM09911 and AKM09912 Z sensitivity data*/
 };
 /*!
 * @brief YAMAHA-YAS532 struct
 * Calibration YAS532 data struct
 */
 struct bst_yas532_calib_data_t {
-s32 cx;/**<YAS532 calib cx data */
-s32 cy1;/**<YAS532 calib cy1 data */
-s32 cy2;/**<YAS532 calib cy2 data */
-s32 a2;/**<YAS532 calib a2 data */
-s32 a3;/**<YAS532 calib a3 data */
-s32 a4;/**<YAS532 calib a4 data */
-s32 a5;/**<YAS532 calib a5 data */
-s32 a6;/**<YAS532 calib a6 data */
-s32 a7;/**<YAS532 calib a7 data */
-s32 a8;/**<YAS532 calib a8 data */
-s32 a9;/**<YAS532 calib a9 data */
-s32 k;/**<YAS532 calib k data */
-s8 rxy1y2[3];/**<YAS532 calib rxy1y2 data */
-u8 fxy1y2[3];/**<YAS532 calib fxy1y2 data */
+	s32 cx;/**<YAS532 calib cx data */
+	s32 cy1;/**<YAS532 calib cy1 data */
+	s32 cy2;/**<YAS532 calib cy2 data */
+	s32 a2;/**<YAS532 calib a2 data */
+	s32 a3;/**<YAS532 calib a3 data */
+	s32 a4;/**<YAS532 calib a4 data */
+	s32 a5;/**<YAS532 calib a5 data */
+	s32 a6;/**<YAS532 calib a6 data */
+	s32 a7;/**<YAS532 calib a7 data */
+	s32 a8;/**<YAS532 calib a8 data */
+	s32 a9;/**<YAS532 calib a9 data */
+	s32 k;/**<YAS532 calib k data */
+	s8 rxy1y2[3];/**<YAS532 calib rxy1y2 data */
+	u8 fxy1y2[3];/**<YAS532 calib fxy1y2 data */
 };
 /*!
 * @brief YAS532 Temperature structure
 */
 #if YAS532_MAG_LOG < YAS532_MAG_TEMPERATURE_LOG
 struct yas_temp_filter_t {
-u16 log[YAS532_MAG_TEMPERATURE_LOG];/**<YAS532 temp log array */
-u8 num;/**< used for increment the index */
-u8 idx;/**< used for increment the index */
+	u16 log[YAS532_MAG_TEMPERATURE_LOG];/**<YAS532 temp log array */
+	u8 num;/**< used for increment the index */
+	u8 idx;/**< used for increment the index */
 };
 #endif
 /*!
@@ -1262,22 +1263,22 @@ u8 idx;/**< used for increment the index */
 */
 struct yas532_t {
 struct bst_yas532_calib_data_t calib_yas532;/**< calib data */
-s8 measure_state;/**< update measure state */
-s8 v_hard_offset_s8[3];/**< offset write array*/
-s32 coef[3];/**< co efficient data */
-s8 overflow;/**< over flow condition check */
-u8 dev_id;/**< device id information */
-const s8 *transform;/**< transform condition check  */
+	s8 measure_state;/**< update measure state */
+	s8 v_hard_offset_s8[3];/**< offset write array*/
+	s32 coef[3];/**< co efficient data */
+	s8 overflow;/**< over flow condition check */
+	u8 dev_id;/**< device id information */
+	const s8 *transform;/**< transform condition check  */
 #if YAS532_MAG_LOG < YAS532_MAG_TEMPERATURE_LOG
 struct yas_temp_filter_t temp_data;/**< temp data */
 #endif
-u16 last_raw[4];/**< raw data */
+	u16 last_raw[4];/**< raw data */
 };
 /*!
 * @brief Used for reading the YAS532 XYZ data
 */
 struct yas532_vector {
-s32 yas532_vector_xyz[3];/**< YAS532 compensated xyz data*/
+	s32 yas532_vector_xyz[3];/**< YAS532 compensated xyz data*/
 };
 /**
  * @struct yas_vector
@@ -1291,32 +1292,32 @@ struct yas_vector {
 * Calibration YAS532 data struct
 */
 struct bst_yas537_calib_data_t {
-s8 a2;/**<YAS532 calib a2 data */
-s8 a3;/**<YAS532 calib a3 data */
-s8 a4;/**<YAS532 calib a4 data */
-s16 a5;/**<YAS532 calib a5 data */
-s8 a6;/**<YAS532 calib a6 data */
-s8 a7;/**<YAS532 calib a7 data */
-s8 a8;/**<YAS532 calib a8 data */
-s16 a9;/**<YAS532 calib a9 data */
-u8 k;/**<YAS532 calib k data */
-u8 ver;/**<YAS532 calib ver data*/
+	s8 a2;/**<YAS532 calib a2 data */
+	s8 a3;/**<YAS532 calib a3 data */
+	s8 a4;/**<YAS532 calib a4 data */
+	s16 a5;/**<YAS532 calib a5 data */
+	s8 a6;/**<YAS532 calib a6 data */
+	s8 a7;/**<YAS532 calib a7 data */
+	s8 a8;/**<YAS532 calib a8 data */
+	s16 a9;/**<YAS532 calib a9 data */
+	u8 k;/**<YAS532 calib k data */
+	u8 ver;/**<YAS532 calib ver data*/
 };
 /*!
 * @brief YAS537 sensor initialization
 */
 struct yas537_t {
-struct bst_yas537_calib_data_t calib_yas537;/**< calib data */
-s8 measure_state;/**< update measure state */
-s8 hard_offset[3];/**< offset write array*/
-u16 last_after_rcoil[3];/**< rcoil write array*/
-s32 coef[3];/**< co efficient data */
-s8 overflow;/**< over flow condition check */
-u8 dev_id;/**< device id information */
-u8 average;/**<average selection for offset configuration*/
-const s8 *transform;/**< transform condition check  */
-u16 last_raw[4];/**< raw data */
-struct yas_vector xyz; /*!< X, Y, Z measurement data of the sensor */
+	struct bst_yas537_calib_data_t calib_yas537;/**< calib data */
+	s8 measure_state;/**< update measure state */
+	s8 hard_offset[3];/**< offset write array*/
+	u16 last_after_rcoil[3];/**< rcoil write array*/
+	s32 coef[3];/**< co efficient data */
+	s8 overflow;/**< over flow condition check */
+	u8 dev_id;/**< device id information */
+	u8 average;/**<average selection for offset configuration*/
+	const s8 *transform;/**< transform condition check  */
+	u16 last_raw[4];/**< raw data */
+	struct yas_vector xyz; /*!< X, Y, Z measurement data of the sensor */
 };
 /**************************************************************/
 /**\name	USER DATA REGISTERS DEFINITION START    */

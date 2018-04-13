@@ -16,6 +16,9 @@
  * Copyright (C) 2014 ARM Limited
  *
  * Author: Will Deacon <will.deacon@arm.com>
+ *
+ * Copyright (C) 2018 XiaoMi, Inc.
+ *
  */
 
 #define pr_fmt(fmt)	"io-pgtable: " fmt

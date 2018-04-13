@@ -1,5 +1,6 @@
 /*
  *  Copyright (C) 1995  Linus Torvalds
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  *  Pentium III FXSR, SSE support
  *	Gareth Hughes <gareth@valinux.com>, May 2000

@@ -2,6 +2,7 @@
  * Intel MID PCI support
  *   Copyright (c) 2008 Intel Corporation
  *     Jesse Barnes <jesse.barnes@intel.com>
+ *   Copyright (C) 2018 XiaoMi, Inc.
  *
  * Moorestown has an interesting PCI implementation:
  *   - configuration space is memory mapped (as defined by MCFG)

@@ -1,4 +1,3 @@
-
 / {
 	testcase-data {
 		platform-tests {
@@ -33,3 +32,4 @@
 		};
 	};
 };
+

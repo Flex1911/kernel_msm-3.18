@@ -5,6 +5,7 @@
  * Copyright (c) 2001-2003 Intel Corp.
  * Copyright (c) 2001-2002 Nokia, Inc.
  * Copyright (c) 2001 La Monte H.P. Yarroll
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is part of the SCTP kernel implementation
  *

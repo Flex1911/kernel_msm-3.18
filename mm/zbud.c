@@ -2,6 +2,7 @@
  * zbud.c
  *
  * Copyright (C) 2013, Seth Jennings, IBM
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Concepts based on zcache internal zbud allocator by Dan Magenheimer.
  *

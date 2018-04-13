@@ -52,7 +52,7 @@
 #define SDCARDFS_ROOT_INO     1
 
 /* useful for tracking code reachability */
-#define UDBG printk(KERN_DEFAULT "DBG:%s:%s:%d\n", __FILE__, __func__, __LINE__)
+#define UDBG printk (KERN_DEFAULT "DBG:%s:%s:%d\n", __FILE__, __func__, __LINE__)
 
 #define SDCARDFS_DIRENT_SIZE 256
 
@@ -68,38 +68,38 @@
 
 #define AID_PACKAGE_INFO  1027
 
-#define fix_derived_permission(x)	\
+#define fix_derived_permission (x)	\
 	do {						\
-		(x)->i_uid = make_kuid(&init_user_ns, SDCARDFS_I(x)->d_uid);	\
-		(x)->i_gid = make_kgid(&init_user_ns, get_gid(SDCARDFS_I(x)));	\
-		(x)->i_mode = ((x)->i_mode & S_IFMT) | get_mode(SDCARDFS_I(x));\
+		 (x)->i_uid = make_kuid (&init_user_ns, SDCARDFS_I (x)->d_uid);	\
+		 (x)->i_gid = make_kgid (&init_user_ns, get_gid (SDCARDFS_I (x)));	\
+		 (x)->i_mode = ((x)->i_mode & S_IFMT) | get_mode (SDCARDFS_I (x));\
 	} while (0)
 
 
-/* OVERRIDE_CRED() and REVERT_CRED()
- * 	OVERRID_CRED()
+/* OVERRIDE_CRED () and REVERT_CRED ()
+ * 	OVERRID_CRED ()
  * 		backup original task->cred
  * 		and modifies task->cred->fsuid/fsgid to specified value.
- *	REVERT_CRED()
+ *	REVERT_CRED ()
  * 		restore original task->cred->fsuid/fsgid.
- * These two macro should be used in pair, and OVERRIDE_CRED() should be
+ * These two macro should be used in pair, and OVERRIDE_CRED () should be
  * placed at the beginning of a function, right after variable declaration.
  */
-#define OVERRIDE_CRED(sdcardfs_sbi, saved_cred)		\
-	saved_cred = override_fsids(sdcardfs_sbi);	\
+#define OVERRIDE_CRED (sdcardfs_sbi, saved_cred)		\
+	saved_cred = override_fsids (sdcardfs_sbi);	\
 	if (!saved_cred) { return -ENOMEM; }
 
-#define OVERRIDE_CRED_PTR(sdcardfs_sbi, saved_cred)	\
-	saved_cred = override_fsids(sdcardfs_sbi);	\
-	if (!saved_cred) { return ERR_PTR(-ENOMEM); }
+#define OVERRIDE_CRED_PTR (sdcardfs_sbi, saved_cred)	\
+	saved_cred = override_fsids (sdcardfs_sbi);	\
+	if (!saved_cred) { return ERR_PTR (-ENOMEM); }
 
-#define REVERT_CRED(saved_cred)	revert_fsids(saved_cred)
+#define REVERT_CRED (saved_cred)	revert_fsids (saved_cred)
 
-#define DEBUG_CRED()		\
-	printk("KAKJAGI: %s:%d fsuid %d fsgid %d\n", 	\
+#define DEBUG_CRED ()		\
+	printk ("KAKJAGI: %s:%d fsuid %d fsgid %d\n", 	\
 		__FUNCTION__, __LINE__, 		\
-		(int)current->cred->fsuid, 		\
-		(int)current->cred->fsgid);
+		 (int)current->cred->fsuid, 		\
+		 (int)current->cred->fsgid);
 
 /* Android 5.0 support */
 
@@ -126,10 +126,10 @@ typedef enum {
 struct sdcardfs_sb_info;
 struct sdcardfs_mount_options;
 
-/* Do not directly use this function. Use OVERRIDE_CRED() instead. */
-const struct cred * override_fsids(struct sdcardfs_sb_info* sbi);
-/* Do not directly use this function, use REVERT_CRED() instead. */
-void revert_fsids(const struct cred * old_cred);
+/* Do not directly use this function. Use OVERRIDE_CRED () instead. */
+const struct cred  *override_fsids (struct sdcardfs_sb_info *sbi);
+/* Do not directly use this function, use REVERT_CRED () instead. */
+void revert_fsids (const struct cred *old_cred);
 
 /* operations vectors defined in specific files */
 extern const struct file_operations sdcardfs_main_fops;
@@ -142,17 +142,17 @@ extern const struct dentry_operations sdcardfs_ci_dops;
 extern const struct address_space_operations sdcardfs_aops, sdcardfs_dummy_aops;
 extern const struct vm_operations_struct sdcardfs_vm_ops;
 
-extern int sdcardfs_init_inode_cache(void);
-extern void sdcardfs_destroy_inode_cache(void);
-extern int sdcardfs_init_dentry_cache(void);
-extern void sdcardfs_destroy_dentry_cache(void);
-extern int new_dentry_private_data(struct dentry *dentry);
-extern void free_dentry_private_data(struct dentry *dentry);
-extern struct dentry *sdcardfs_lookup(struct inode *dir, struct dentry *dentry,
+extern int sdcardfs_init_inode_cache (void);
+extern void sdcardfs_destroy_inode_cache (void);
+extern int sdcardfs_init_dentry_cache (void);
+extern void sdcardfs_destroy_dentry_cache (void);
+extern int new_dentry_private_data (struct dentry *dentry);
+extern void free_dentry_private_data (struct dentry *dentry);
+extern struct dentry *sdcardfs_lookup (struct inode *dir, struct dentry *dentry,
 				unsigned int flags);
-extern struct inode *sdcardfs_iget(struct super_block *sb,
+extern struct inode *sdcardfs_iget (struct super_block *sb,
 				 struct inode *lower_inode, userid_t id);
-extern int sdcardfs_interpose(struct dentry *dentry, struct super_block *sb,
+extern int sdcardfs_interpose (struct dentry *dentry, struct super_block *sb,
 			    struct path *lower_path, userid_t id);
 
 /* file private data */
@@ -212,117 +212,117 @@ struct sdcardfs_sb_info {
  * sdcardfs_inode_info structure, SDCARDFS_I will always (given a non-NULL
  * inode pointer), return a valid non-NULL pointer.
  */
-static inline struct sdcardfs_inode_info *SDCARDFS_I(const struct inode *inode)
+static inline struct sdcardfs_inode_info *SDCARDFS_I (const struct inode *inode)
 {
-	return container_of(inode, struct sdcardfs_inode_info, vfs_inode);
+	return container_of (inode, struct sdcardfs_inode_info, vfs_inode);
 }
 
 /* dentry to private data */
-#define SDCARDFS_D(dent) ((struct sdcardfs_dentry_info *)(dent)->d_fsdata)
+#define SDCARDFS_D (dent) ((struct sdcardfs_dentry_info *) (dent)->d_fsdata)
 
 /* superblock to private data */
-#define SDCARDFS_SB(super) ((struct sdcardfs_sb_info *)(super)->s_fs_info)
+#define SDCARDFS_SB (super) ((struct sdcardfs_sb_info *) (super)->s_fs_info)
 
 /* file to private Data */
-#define SDCARDFS_F(file) ((struct sdcardfs_file_info *)((file)->private_data))
+#define SDCARDFS_F (file) ((struct sdcardfs_file_info *) ((file)->private_data))
 
 /* file to lower file */
-static inline struct file *sdcardfs_lower_file(const struct file *f)
+static inline struct file *sdcardfs_lower_file (const struct file *f)
 {
-	return SDCARDFS_F(f)->lower_file;
+	return SDCARDFS_F (f)->lower_file;
 }
 
-static inline void sdcardfs_set_lower_file(struct file *f, struct file *val)
+static inline void sdcardfs_set_lower_file (struct file *f, struct file *val)
 {
-	SDCARDFS_F(f)->lower_file = val;
+	SDCARDFS_F (f)->lower_file = val;
 }
 
 /* inode to lower inode. */
-static inline struct inode *sdcardfs_lower_inode(const struct inode *i)
+static inline struct inode *sdcardfs_lower_inode (const struct inode *i)
 {
-	return SDCARDFS_I(i)->lower_inode;
+	return SDCARDFS_I (i)->lower_inode;
 }
 
-static inline void sdcardfs_set_lower_inode(struct inode *i, struct inode *val)
+static inline void sdcardfs_set_lower_inode (struct inode *i, struct inode *val)
 {
-	SDCARDFS_I(i)->lower_inode = val;
+	SDCARDFS_I (i)->lower_inode = val;
 }
 
 /* superblock to lower superblock */
-static inline struct super_block *sdcardfs_lower_super(
+static inline struct super_block *sdcardfs_lower_super (
 	const struct super_block *sb)
 {
-	return SDCARDFS_SB(sb)->lower_sb;
+	return SDCARDFS_SB (sb)->lower_sb;
 }
 
-static inline void sdcardfs_set_lower_super(struct super_block *sb,
+static inline void sdcardfs_set_lower_super (struct super_block *sb,
 					  struct super_block *val)
 {
-	SDCARDFS_SB(sb)->lower_sb = val;
+	SDCARDFS_SB (sb)->lower_sb = val;
 }
 
 /* path based (dentry/mnt) macros */
-static inline void pathcpy(struct path *dst, const struct path *src)
+static inline void pathcpy (struct path *dst, const struct path *src)
 {
 	dst->dentry = src->dentry;
 	dst->mnt = src->mnt;
 }
 
-/* sdcardfs_get_pname functions calls path_get()
+/* sdcardfs_get_pname functions calls path_get ()
  * therefore, the caller must call "proper" path_put functions
  */
-#define SDCARDFS_DENT_FUNC(pname) \
-static inline void sdcardfs_get_##pname(const struct dentry *dent, \
+#define SDCARDFS_DENT_FUNC (pname) \
+static inline void sdcardfs_get_##pname (const struct dentry *dent, \
 					struct path *pname) \
 { \
-	spin_lock(&SDCARDFS_D(dent)->lock); \
-	pathcpy(pname, &SDCARDFS_D(dent)->pname); \
-	path_get(pname); \
-	spin_unlock(&SDCARDFS_D(dent)->lock); \
+	spin_lock (&SDCARDFS_D (dent)->lock); \
+	pathcpy (pname, &SDCARDFS_D (dent)->pname); \
+	path_get (pname); \
+	spin_unlock (&SDCARDFS_D (dent)->lock); \
 	return; \
 } \
-static inline void sdcardfs_put_##pname(const struct dentry *dent, \
+static inline void sdcardfs_put_##pname (const struct dentry *dent, \
 					struct path *pname) \
 { \
-	path_put(pname); \
+	path_put (pname); \
 	return; \
 } \
-static inline void sdcardfs_set_##pname(const struct dentry *dent, \
+static inline void sdcardfs_set_##pname (const struct dentry *dent, \
 					struct path *pname) \
 { \
-	spin_lock(&SDCARDFS_D(dent)->lock); \
-	pathcpy(&SDCARDFS_D(dent)->pname, pname); \
-	spin_unlock(&SDCARDFS_D(dent)->lock); \
+	spin_lock (&SDCARDFS_D (dent)->lock); \
+	pathcpy (&SDCARDFS_D (dent)->pname, pname); \
+	spin_unlock (&SDCARDFS_D (dent)->lock); \
 	return; \
 } \
-static inline void sdcardfs_reset_##pname(const struct dentry *dent) \
+static inline void sdcardfs_reset_##pname (const struct dentry *dent) \
 { \
-	spin_lock(&SDCARDFS_D(dent)->lock); \
-	SDCARDFS_D(dent)->pname.dentry = NULL; \
-	SDCARDFS_D(dent)->pname.mnt = NULL; \
-	spin_unlock(&SDCARDFS_D(dent)->lock); \
+	spin_lock (&SDCARDFS_D (dent)->lock); \
+	SDCARDFS_D (dent)->pname.dentry = NULL; \
+	SDCARDFS_D (dent)->pname.mnt = NULL; \
+	spin_unlock (&SDCARDFS_D (dent)->lock); \
 	return; \
 } \
-static inline void sdcardfs_put_reset_##pname(const struct dentry *dent) \
+static inline void sdcardfs_put_reset_##pname (const struct dentry *dent) \
 { \
 	struct path pname; \
-	spin_lock(&SDCARDFS_D(dent)->lock); \
-	if(SDCARDFS_D(dent)->pname.dentry) { \
-		pathcpy(&pname, &SDCARDFS_D(dent)->pname); \
-		SDCARDFS_D(dent)->pname.dentry = NULL; \
-		SDCARDFS_D(dent)->pname.mnt = NULL; \
-		spin_unlock(&SDCARDFS_D(dent)->lock); \
-		path_put(&pname); \
+	spin_lock (&SDCARDFS_D (dent)->lock); \
+	if (SDCARDFS_D (dent)->pname.dentry) { \
+		pathcpy (&pname, &SDCARDFS_D (dent)->pname); \
+		SDCARDFS_D (dent)->pname.dentry = NULL; \
+		SDCARDFS_D (dent)->pname.mnt = NULL; \
+		spin_unlock (&SDCARDFS_D (dent)->lock); \
+		path_put (&pname); \
 	} else \
-		spin_unlock(&SDCARDFS_D(dent)->lock); \
+		spin_unlock (&SDCARDFS_D (dent)->lock); \
 	return; \
 }
 
-SDCARDFS_DENT_FUNC(lower_path)
-SDCARDFS_DENT_FUNC(orig_path)
+SDCARDFS_DENT_FUNC (lower_path)
+SDCARDFS_DENT_FUNC (orig_path)
 
-static inline int get_gid(struct sdcardfs_inode_info *info) {
-	struct sdcardfs_sb_info *sb_info = SDCARDFS_SB(info->vfs_inode.i_sb);
+static inline int get_gid (struct sdcardfs_inode_info *info) {
+	struct sdcardfs_sb_info *sb_info = SDCARDFS_SB (info->vfs_inode.i_sb);
 	if (sb_info->options.gid == AID_SDCARD_RW) {
 		/* As an optimization, certain trusted system components only run
 		 * as owner but operate across all users. Since we're now handing
@@ -331,13 +331,13 @@ static inline int get_gid(struct sdcardfs_inode_info *info) {
 		 * assigned to app directories are still multiuser aware. */
 		return AID_SDCARD_RW;
 	} else {
-		return multiuser_get_uid(info->userid, sb_info->options.gid);
+		return multiuser_get_uid (info->userid, sb_info->options.gid);
 	}
 }
-static inline int get_mode(struct sdcardfs_inode_info *info) {
+static inline int get_mode (struct sdcardfs_inode_info *info) {
 	int owner_mode;
 	int filtered_mode;
-	struct sdcardfs_sb_info *sb_info = SDCARDFS_SB(info->vfs_inode.i_sb);
+	struct sdcardfs_sb_info *sb_info = SDCARDFS_SB (info->vfs_inode.i_sb);
 	int visible_mode = 0775 & ~sb_info->options.mask;
 
 	if (info->perm == PERM_PRE_ROOT) {
@@ -359,112 +359,112 @@ static inline int get_mode(struct sdcardfs_inode_info *info) {
 	return filtered_mode;
 }
 
-static inline int has_graft_path(const struct dentry *dent)
+static inline int has_graft_path (const struct dentry *dent)
 {
 	int ret = 0;
 
-	spin_lock(&SDCARDFS_D(dent)->lock);
-	if (SDCARDFS_D(dent)->orig_path.dentry != NULL)
+	spin_lock (&SDCARDFS_D (dent)->lock);
+	if (SDCARDFS_D (dent)->orig_path.dentry != NULL)
 		ret = 1;
-	spin_unlock(&SDCARDFS_D(dent)->lock);
+	spin_unlock (&SDCARDFS_D (dent)->lock);
 
 	return ret;
 }
 
-static inline void sdcardfs_get_real_lower(const struct dentry *dent,
+static inline void sdcardfs_get_real_lower (const struct dentry *dent,
 						struct path *real_lower)
 {
 	/* in case of a local obb dentry
 	 * the orig_path should be returned
 	 */
-	if(has_graft_path(dent))
-		sdcardfs_get_orig_path(dent, real_lower);
+	if (has_graft_path (dent))
+		sdcardfs_get_orig_path (dent, real_lower);
 	else
-		sdcardfs_get_lower_path(dent, real_lower);
+		sdcardfs_get_lower_path (dent, real_lower);
 }
 
-static inline void sdcardfs_put_real_lower(const struct dentry *dent,
+static inline void sdcardfs_put_real_lower (const struct dentry *dent,
 						struct path *real_lower)
 {
-	if(has_graft_path(dent))
-		sdcardfs_put_orig_path(dent, real_lower);
+	if (has_graft_path (dent))
+		sdcardfs_put_orig_path (dent, real_lower);
 	else
-		sdcardfs_put_lower_path(dent, real_lower);
+		sdcardfs_put_lower_path (dent, real_lower);
 }
 
 extern struct mutex sdcardfs_super_list_lock;
 extern struct list_head sdcardfs_super_list;
 
 /* for packagelist.c */
-extern appid_t get_appid(void *pkgl_id, const char *app_name);
-extern int check_caller_access_to_name(struct inode *parent_node, const char* name);
-extern int open_flags_to_access_mode(int open_flags);
-extern int packagelist_init(void);
-extern void packagelist_exit(void);
+extern appid_t get_appid (void *pkgl_id, const char *app_name);
+extern int check_caller_access_to_name (struct inode *parent_node, const char *name);
+extern int open_flags_to_access_mode (int open_flags);
+extern int packagelist_init (void);
+extern void packagelist_exit (void);
 
 /* for derived_perm.c */
-extern void setup_derived_state(struct inode *inode, perm_t perm,
+extern void setup_derived_state (struct inode *inode, perm_t perm,
 			userid_t userid, uid_t uid, bool under_android);
-extern void get_derived_permission(struct dentry *parent, struct dentry *dentry);
-extern void get_derived_permission_new(struct dentry *parent, struct dentry *dentry, struct dentry *newdentry);
-extern void get_derive_permissions_recursive(struct dentry *parent);
+extern void get_derived_permission (struct dentry *parent, struct dentry *dentry);
+extern void get_derived_permission_new (struct dentry *parent, struct dentry *dentry, struct dentry *newdentry);
+extern void get_derive_permissions_recursive (struct dentry *parent);
 
-extern void update_derived_permission_lock(struct dentry *dentry);
-extern int need_graft_path(struct dentry *dentry);
-extern int is_base_obbpath(struct dentry *dentry);
-extern int is_obbpath_invalid(struct dentry *dentry);
-extern int setup_obb_dentry(struct dentry *dentry, struct path *lower_path);
+extern void update_derived_permission_lock (struct dentry *dentry);
+extern int need_graft_path (struct dentry *dentry);
+extern int is_base_obbpath (struct dentry *dentry);
+extern int is_obbpath_invalid (struct dentry *dentry);
+extern int setup_obb_dentry (struct dentry *dentry, struct path *lower_path);
 
 /* locking helpers */
-static inline struct dentry *lock_parent(struct dentry *dentry)
+static inline struct dentry *lock_parent (struct dentry *dentry)
 {
-	struct dentry *dir = dget_parent(dentry);
-	mutex_lock_nested(&dir->d_inode->i_mutex, I_MUTEX_PARENT);
+	struct dentry *dir = dget_parent (dentry);
+	mutex_lock_nested (&dir->d_inode->i_mutex, I_MUTEX_PARENT);
 	return dir;
 }
 
-static inline void unlock_dir(struct dentry *dir)
+static inline void unlock_dir (struct dentry *dir)
 {
-	mutex_unlock(&dir->d_inode->i_mutex);
-	dput(dir);
+	mutex_unlock (&dir->d_inode->i_mutex);
+	dput (dir);
 }
 
-static inline int prepare_dir(const char *path_s, uid_t uid, gid_t gid, mode_t mode)
+static inline int prepare_dir (const char *path_s, uid_t uid, gid_t gid, mode_t mode)
 {
 	int err;
 	struct dentry *dent;
 	struct iattr attrs;
 	struct path parent;
 
-	dent = kern_path_locked(path_s, &parent);
-	if (IS_ERR(dent)) {
-		err = PTR_ERR(dent);
+	dent = kern_path_locked (path_s, &parent);
+	if (IS_ERR (dent)) {
+		err = PTR_ERR (dent);
 		if (err == -EEXIST)
 			err = 0;
 		goto out_unlock;
 	}
 
-	err = vfs_mkdir(parent.dentry->d_inode, dent, mode);
+	err = vfs_mkdir (parent.dentry->d_inode, dent, mode);
 	if (err) {
 		if (err == -EEXIST)
 			err = 0;
 		goto out_dput;
 	}
 
-	attrs.ia_uid = make_kuid(&init_user_ns, uid);
-	attrs.ia_gid = make_kgid(&init_user_ns, gid);
+	attrs.ia_uid = make_kuid (&init_user_ns, uid);
+	attrs.ia_gid = make_kgid (&init_user_ns, gid);
 	attrs.ia_valid = ATTR_UID | ATTR_GID;
-	mutex_lock(&dent->d_inode->i_mutex);
-	notify_change(dent, &attrs, NULL);
-	mutex_unlock(&dent->d_inode->i_mutex);
+	mutex_lock (&dent->d_inode->i_mutex);
+	notify_change (dent, &attrs, NULL);
+	mutex_unlock (&dent->d_inode->i_mutex);
 
 out_dput:
-	dput(dent);
+	dput (dent);
 
 out_unlock:
 	/* parent dentry locked by lookup_create */
-	mutex_unlock(&parent.dentry->d_inode->i_mutex);
-	path_put(&parent);
+	mutex_unlock (&parent.dentry->d_inode->i_mutex);
+	path_put (&parent);
 	return err;
 }
 
@@ -472,29 +472,29 @@ out_unlock:
  * Return 1, if a disk has enough free space, otherwise 0.
  * We assume that any files can not be overwritten.
  */
-static inline int check_min_free_space(struct dentry *dentry, size_t size, int dir)
+static inline int check_min_free_space (struct dentry *dentry, size_t size, int dir)
 {
 	int err;
 	struct path lower_path;
 	struct kstatfs statfs;
 	u64 avail;
-	struct sdcardfs_sb_info *sbi = SDCARDFS_SB(dentry->d_sb);
+	struct sdcardfs_sb_info *sbi = SDCARDFS_SB (dentry->d_sb);
 
 	if (sbi->options.reserved_mb) {
 		/* Get fs stat of lower filesystem. */
-		sdcardfs_get_lower_path(dentry, &lower_path);
-		err = vfs_statfs(&lower_path, &statfs);
-		sdcardfs_put_lower_path(dentry, &lower_path);
+		sdcardfs_get_lower_path (dentry, &lower_path);
+		err = vfs_statfs (&lower_path, &statfs);
+		sdcardfs_put_lower_path (dentry, &lower_path);
 
-		if (unlikely(err))
+		if (unlikely (err))
 			return 0;
 
 		/* Invalid statfs informations. */
-		if (unlikely(statfs.f_bsize == 0))
+		if (unlikely (statfs.f_bsize == 0))
 			return 0;
 
 		/* if you are checking directory, set size to f_bsize. */
-		if (unlikely(dir))
+		if (unlikely (dir))
 			size = statfs.f_bsize;
 
 		/* available size */
@@ -514,17 +514,17 @@ static inline int check_min_free_space(struct dentry *dentry, size_t size, int d
 }
 
 /* Copies attrs and maintains sdcardfs managed attrs */
-static inline void sdcardfs_copy_and_fix_attrs(struct inode *dest, const struct inode *src)
+static inline void sdcardfs_copy_and_fix_attrs (struct inode *dest, const struct inode *src)
 {
-	dest->i_mode = (src->i_mode  & S_IFMT) | get_mode(SDCARDFS_I(dest));
-	dest->i_uid = make_kuid(&init_user_ns, SDCARDFS_I(dest)->d_uid);
-	dest->i_gid = make_kgid(&init_user_ns, get_gid(SDCARDFS_I(dest)));
+	dest->i_mode = (src->i_mode  & S_IFMT) | get_mode (SDCARDFS_I (dest));
+	dest->i_uid = make_kuid (&init_user_ns, SDCARDFS_I (dest)->d_uid);
+	dest->i_gid = make_kgid (&init_user_ns, get_gid (SDCARDFS_I (dest)));
 	dest->i_rdev = src->i_rdev;
 	dest->i_atime = src->i_atime;
 	dest->i_mtime = src->i_mtime;
 	dest->i_ctime = src->i_ctime;
 	dest->i_blkbits = src->i_blkbits;
 	dest->i_flags = src->i_flags;
-	set_nlink(dest, src->i_nlink);
+	set_nlink (dest, src->i_nlink);
 }
 #endif	/* not _SDCARDFS_H_ */

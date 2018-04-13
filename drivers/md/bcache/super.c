@@ -4,6 +4,7 @@
  *
  * Copyright 2010, 2011 Kent Overstreet <kent.overstreet@gmail.com>
  * Copyright 2012 Google, Inc.
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #include "bcache.h"

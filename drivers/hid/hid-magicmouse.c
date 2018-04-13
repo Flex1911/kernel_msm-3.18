@@ -3,6 +3,7 @@
  *
  *   Copyright (c) 2010 Michael Poole <mdpoole@troilus.org>
  *   Copyright (c) 2010 Chase Douglas <chase.douglas@canonical.com>
+ *   Copyright (C) 2018 XiaoMi, Inc.
  */
 
 /*

@@ -6,6 +6,7 @@
  * Copyright (C) 2006 Texas Instruments.
  * Copyright (C) 2007 MontaVista Software Inc.
  * Copyright (C) 2009 Provigent Ltd.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * ----------------------------------------------------------------------------
  *

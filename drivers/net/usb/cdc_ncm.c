@@ -4,6 +4,7 @@
  * Copyright (C) ST-Ericsson 2010-2012
  * Contact: Alexey Orishko <alexey.orishko@stericsson.com>
  * Original author: Hans Petter Selasky <hans.petter.selasky@stericsson.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * USB Host Driver for Network Control Model (NCM)
  * http://www.usb.org/developers/devclass_docs/NCM10.zip

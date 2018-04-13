@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013 Texas Instruments Incorporated - http://www.ti.com/
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -1288,21 +1289,8 @@
 			#address-cells = <1>;
 			#size-cells = <1>;
 
-			/*
-			 * Do not allow gating of cpsw clock as workaround
-			 * for errata i877. Keeping internal clock disabled
-			 * causes the device switching characteristics
-			 * to degrade over time and eventually fail to meet
-			 * the data manual delay time/skew specs.
-			 */
 			ti,no-idle;
 
-			/*
-			 * rx_thresh_pend
-			 * rx_pend
-			 * tx_pend
-			 * misc_pend
-			 */
 			interrupts = <GIC_SPI 334 IRQ_TYPE_LEVEL_HIGH>,
 				     <GIC_SPI 335 IRQ_TYPE_LEVEL_HIGH>,
 				     <GIC_SPI 336 IRQ_TYPE_LEVEL_HIGH>,

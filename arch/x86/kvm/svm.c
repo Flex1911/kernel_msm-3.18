@@ -5,6 +5,7 @@
  *
  * Copyright (C) 2006 Qumranet, Inc.
  * Copyright 2010 Red Hat, Inc. and/or its affiliates.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Authors:
  *   Yaniv Kamay  <yaniv@qumranet.com>

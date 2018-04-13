@@ -19,6 +19,7 @@
  *
  * Authors: Robert Jennings <rcj@linux.vnet.ibm.com>
  *          Seth Jennings <sjenning@linux.vnet.ibm.com>
+ *
  */
 
 #include <linux/kernel.h>

@@ -3,6 +3,7 @@
  *
  * Copyright (c) 1999-2002 Vojtech Pavlik
  * Copyright (c) 2003-2004 Dmitry Torokhov
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 
 /*

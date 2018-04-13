@@ -1,4 +1,5 @@
 /* Copyright (c) 2012-2016, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -69,6 +70,7 @@
 #define QPNP_POFF_REASON1(pon) \
 	((pon)->base + PON_OFFSET((pon)->subtype, 0xC, 0xC5))
 #define QPNP_PON_WARM_RESET_REASON2(pon)	((pon)->base + 0xB)
+#define QPNP_POFF_REASON2(pon)                 ((pon)->base + 0xD)
 #define QPNP_PON_OFF_REASON(pon)		((pon)->base + 0xC7)
 #define QPNP_FAULT_REASON1(pon)			((pon)->base + 0xC8)
 #define QPNP_S3_RESET_REASON(pon)		((pon)->base + 0xCA)
@@ -484,9 +486,9 @@ static int qpnp_pon_reset_config(struct qpnp_pon *pon,
 		rst_en_reg = QPNP_PON_PS_HOLD_RST_CTL2(pon);
 
 	/*
-	 * Based on the poweroff type set for a PON device through device tree
-	 * change the type being configured into PS_HOLD_RST_CTL.
-	 */
+	* Based on the poweroff type set for a PON device through device tree
+	* change the type being configured into PS_HOLD_RST_CTL.
+	*/
 	switch (type) {
 	case PON_POWER_OFF_WARM_RESET:
 		if (pon->warm_reset_poff_type != -EINVAL)
@@ -511,10 +513,10 @@ static int qpnp_pon_reset_config(struct qpnp_pon *pon,
 			rst_en_reg, rc);
 
 	/*
-	 * We need 10 sleep clock cycles here. But since the clock is
-	 * internally generated, we need to add 50% tolerance to be
-	 * conservative.
-	 */
+	* We need 10 sleep clock cycles here. But since the clock is
+	* internally generated, we need to add 50% tolerance to be
+	* conservative.
+	*/
 	udelay(500);
 
 	rc = qpnp_pon_masked_write(pon, QPNP_PON_PS_HOLD_RST_CTL(pon),
@@ -564,10 +566,10 @@ int qpnp_pon_system_pwr_off(enum pon_power_off_type type)
 	}
 
 	/*
-	 * Check if a secondary PON device needs to be configured. If it
-	 * is available, configure that also as per the requested power off
-	 * type
-	 */
+	* Check if a secondary PON device needs to be configured. If it
+	* is available, configure that also as per the requested power off
+	* type
+	*/
 	spin_lock_irqsave(&spon_list_slock, flags);
 	if (list_empty(&spon_dev_list))
 		goto out;
@@ -611,6 +613,77 @@ int qpnp_pon_is_warm_reset(void)
 		return pon->warm_reset_reason1;
 }
 EXPORT_SYMBOL(qpnp_pon_is_warm_reset);
+
+int qpnp_pon_is_ps_hold_reset(void)
+{
+	struct qpnp_pon *pon = sys_reset_dev;
+	int rc;
+	u8 reg = 0;
+
+	if (!pon)
+		return 0;
+
+	rc = spmi_ext_register_readl(pon->spmi->ctrl, pon->spmi->sid,
+					   QPNP_POFF_REASON1(pon), &reg, 1);
+	if (rc) {
+		dev_err(&pon->spmi->dev,
+				   "Unable to read addr=%x, rc(%d)\n",
+				   QPNP_POFF_REASON1(pon), rc);
+		return 0;
+	}
+
+	/* The bit 1 is 1, means by PS_HOLD/MSM controlled shutdown */
+	if (reg & 0x2)
+		return 1;
+	dev_info(&pon->spmi->dev,
+				   "hw_reset reason1 is 0x%x\n",
+				   reg);
+
+	rc = spmi_ext_register_readl(pon->spmi->ctrl, pon->spmi->sid,
+					   QPNP_POFF_REASON2(pon), &reg, 1);
+
+	dev_info(&pon->spmi->dev,
+					   "hw_reset reason2 is 0x%x\n",
+					   reg);
+	return 0;
+}
+EXPORT_SYMBOL(qpnp_pon_is_ps_hold_reset);
+
+int qpnp_pon_is_lpk(void)
+{
+	struct qpnp_pon *pon = sys_reset_dev;
+	int rc;
+	u8 reg = 0;
+
+	if (!pon)
+		return 0;
+
+	rc = spmi_ext_register_readl(pon->spmi->ctrl, pon->spmi->sid,
+					   QPNP_POFF_REASON1(pon), &reg, 1);
+	if (rc) {
+		dev_err(&pon->spmi->dev,
+				   "Unable to read addr=%x, rc(%d)\n",
+				   QPNP_POFF_REASON1(pon), rc);
+		return 0;
+	}
+
+
+	if (reg & 0x80)
+		return 1;
+
+	dev_info(&pon->spmi->dev,
+				   "hw_reset reason1 is 0x%x\n",
+				   reg);
+
+	rc = spmi_ext_register_readl(pon->spmi->ctrl, pon->spmi->sid,
+					   QPNP_POFF_REASON2(pon), &reg, 1);
+
+	dev_info(&pon->spmi->dev,
+				   "hw_reset reason2 is 0x%x\n",
+				   reg);
+	return 0;
+}
+EXPORT_SYMBOL(qpnp_pon_is_lpk);
 
 /**
  * qpnp_pon_wd_config - Disable the wd in a warm reset.
@@ -832,8 +905,8 @@ qpnp_pon_input_dispatch(struct qpnp_pon *pon, u32 pon_type)
 	}
 
 	/* simulate press event in case release event occured
-	 * without a press event
-	 */
+	* without a press event
+	*/
 	if (!cfg->old_state && !key_status) {
 		input_report_key(pon->pon_input, cfg->key_code, 1);
 		input_sync(pon->pon_input);
@@ -1510,9 +1583,9 @@ static int qpnp_pon_config_init(struct qpnp_pon *pon)
 
 		}
 		/*
-		 * Get the standard-key parameters. This might not be
-		 * specified if there is no key mapping on the reset line.
-		 */
+		* Get the standard-key parameters. This might not be
+		* specified if there is no key mapping on the reset line.
+		*/
 		rc = of_property_read_u32(pp, "linux,code", &cfg->key_code);
 		if (rc && rc != -EINVAL) {
 			dev_err(&pon->spmi->dev,
@@ -2197,10 +2270,10 @@ static int qpnp_pon_probe(struct spmi_device *spmi)
 		s3_src_reg = QPNP_PON_S3_SRC_KPDPWR_AND_RESIN;
 
 	/*
-	 * S3 source is a write once register. If the register has
-	 * been configured by bootloader then this operation will
-	 * not be effective.
-	 */
+	* S3 source is a write once register. If the register has
+	* been configured by bootloader then this operation will
+	* not be effective.
+	*/
 	rc = qpnp_pon_masked_write(pon, QPNP_PON_S3_SRC(pon),
 			QPNP_PON_S3_SRC_MASK, s3_src_reg);
 	if (rc) {

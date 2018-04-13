@@ -5,6 +5,7 @@
  * Partly derived from ehci-fsl.c and ehci-hcd.c
  * Copyright (c) 2000-2004 by David Brownell
  * Copyright (c) 2005 MontaVista Software
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * All source code in this file is licensed under the following license except
  * where indicated.

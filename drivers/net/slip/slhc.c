@@ -4,6 +4,7 @@
  *
  * Copyright (c) 1989 Regents of the University of California.
  * All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Redistribution and use in source and binary forms are permitted
  * provided that the above copyright notice and this paragraph are

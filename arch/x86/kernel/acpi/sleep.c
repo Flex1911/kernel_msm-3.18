@@ -3,6 +3,7 @@
  *
  *  Copyright (C) 2001-2003 Patrick Mochel
  *  Copyright (C) 2001-2003 Pavel Machek <pavel@ucw.cz>
+ *  Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #include <linux/acpi.h>

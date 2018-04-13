@@ -2,6 +2,7 @@
  * wm5110-tables.c  --  WM5110 data tables
  *
  * Copyright 2012 Wolfson Microelectronics plc
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Author: Mark Brown <broonie@opensource.wolfsonmicro.com>
  *

@@ -498,7 +498,7 @@ Example 6: opp-microvolt-<name>, opp-microamp-<name>:
 		opp@1200000000 {
 			opp-hz = /bits/ 64 <1200000000>;
 			opp-microvolt-slow = <900000 915000 925000>, /* Supply vcc0 */
-					      <910000 925000 935000>; /* Supply vcc1 */
+					     <910000 925000 935000>; /* Supply vcc1 */
 			opp-microvolt-fast = <970000 975000 985000>, /* Supply vcc0 */
 					     <960000 965000 975000>; /* Supply vcc1 */
 			opp-microamp =  <70000>; /* Will be used for both slow/fast */

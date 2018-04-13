@@ -9,6 +9,7 @@
  *	Michal Nazarewicz <mina86@mina86.com>
  *	Aneesh Kumar K.V <aneesh.kumar@linux.vnet.ibm.com>
  *	Joonsoo Kim <iamjoonsoo.kim@lge.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as

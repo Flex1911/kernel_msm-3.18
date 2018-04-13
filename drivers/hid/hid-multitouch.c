@@ -17,6 +17,7 @@
  *  Copyright (c) 2009-2010 Stephane Chatty <chatty@enac.fr>
  *  Copyright (c) 2010      Henrik Rydberg <rydberg@euromail.se>
  *  Copyright (c) 2010      Canonical, Ltd.
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  */
 

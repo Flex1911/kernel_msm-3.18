@@ -3,6 +3,7 @@
  *
  *  Copyright (C) 1991, 1992, 1993, 1994  Linus Torvalds
  *  Swap reorganised 29.12.95, Stephen Tweedie
+ *  Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #include <linux/mm.h>

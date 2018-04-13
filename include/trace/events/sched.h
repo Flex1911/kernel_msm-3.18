@@ -296,12 +296,12 @@ TRACE_EVENT(sched_update_task_ravg,
 		__field(	 int,	cpu			)
 #ifdef CONFIG_SCHED_FREQ_INPUT
 		__field(unsigned int,	pred_demand		)
-		__field(	u64,	rq_cs			)
-		__field(	u64,	rq_ps			)
-		__field(	u64,	grp_cs			)
-		__field(	u64,	grp_ps			)
-		__field(	u64,	grp_nt_cs			)
-		__field(	u64,	grp_nt_ps			)
+		__field(u64,	rq_cs)
+		__field(u64,	rq_ps)
+		__field(u64,	grp_cs)
+		__field(u64,	grp_ps)
+		__field(u64,	grp_nt_cs)
+		__field(u64,	grp_nt_ps)
 		__field(	u32,	curr_window		)
 		__field(	u32,	prev_window		)
 		__field(	u64,	nt_cs			)
@@ -369,12 +369,12 @@ TRACE_EVENT(sched_get_task_cpu_cycles,
 	TP_ARGS(cpu, event, cycles, exec_time),
 
 	TP_STRUCT__entry(
-		__field(int,		cpu		)
-		__field(int,		event		)
-		__field(u64,		cycles		)
-		__field(u64,		exec_time	)
-		__field(u32,		freq		)
-		__field(u32,		legacy_freq	)
+		__field(int,		cpu)
+		__field(int,		event)
+		__field(u64,		cycles)
+		__field(u64,		exec_time)
+		__field(u32,		freq)
+		__field(u32,		legacy_freq)
 	),
 
 	TP_fast_assign(
@@ -525,21 +525,21 @@ TRACE_EVENT(sched_migration_update_sum,
 	TP_ARGS(p, migrate_type, d),
 
 	TP_STRUCT__entry(
-		__field(int,		tcpu			)
+		__field(int,		tcpu)
 		__field(int,		pid			)
 		__field(	u64,	cs			)
 		__field(	u64,	ps			)
 		__field(	s64,	nt_cs			)
 		__field(	s64,	nt_ps			)
-		__field(enum migrate_types,	migrate_type	)
-		__field(	s64,	src_cs			)
-		__field(	s64,	src_ps			)
-		__field(	s64,	dst_cs			)
-		__field(	s64,	dst_ps			)
-		__field(	s64,	src_nt_cs		)
-		__field(	s64,	src_nt_ps		)
-		__field(	s64,	dst_nt_cs		)
-		__field(	s64,	dst_nt_ps		)
+		__field(enum migrate_types,	migrate_type)
+		__field(s64,	src_cs)
+		__field(s64,	src_ps)
+		__field(s64,	dst_cs)
+		__field(s64,	dst_ps)
+		__field(s64,	src_nt_cs)
+		__field(s64,	src_nt_ps)
+		__field(s64,	dst_nt_cs)
+		__field(s64,	dst_nt_ps)
 	),
 
 	TP_fast_assign(
@@ -615,9 +615,9 @@ TRACE_EVENT(sched_freq_alert,
 	TP_STRUCT__entry(
 		__field(	int,	cpu			)
 		__field(	int,	pd_notif		)
-		__field(	int,	check_groups		)
-		__field(	u64,	old_busy_time		)
-		__field(	u64,	ps			)
+		__field(int,	check_groups)
+		__field(u64,	old_busy_time)
+		__field(u64,	ps)
 		__field(	u64,	new_load		)
 		__field(	u64,	old_pred		)
 		__field(	u64,	new_pred		)

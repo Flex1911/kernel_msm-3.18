@@ -1,4 +1,5 @@
 /* Copyright (c) 2016, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -348,8 +349,8 @@ struct Ipa3HwNtnSetUpCmdData_t {
  */
 union Ipa3HwNtnCommonChCmdData_t {
 	struct IpaHwNtnCommonChCmdParams_t {
-		u32  ipa_pipe_number :8;
-		u32  reserved        :24;
+		u32  ipa_pipe_number:8;
+		u32  reserved:24;
 	} __packed params;
 	uint32_t raw32b;
 } __packed;
@@ -368,10 +369,10 @@ union Ipa3HwNtnCommonChCmdData_t {
  */
 union Ipa3HwNTNErrorEventData_t {
 	struct IpaHwNTNErrorEventParams_t {
-		u32  ntn_error_type  :8;
-		u32  reserved        :8;
-		u32  ipa_pipe_number :8;
-		u32  ntn_ch_err_type :8;
+		u32  ntn_error_type:8;
+		u32  reserved:8;
+		u32  ipa_pipe_number:8;
+		u32  ntn_ch_err_type:8;
 	} __packed params;
 	uint32_t raw32b;
 } __packed;

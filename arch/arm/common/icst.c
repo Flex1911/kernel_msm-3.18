@@ -1,18 +1,19 @@
 /*
- *  linux/arch/arm/common/icst307.c
+ * linux/arch/arm/common/icst307.c
  *
- *  Copyright (C) 2003 Deep Blue Solutions, Ltd, All Rights Reserved.
+ * Copyright (C) 2003 Deep Blue Solutions, Ltd, All Rights Reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  *
- *  Support functions for calculating clocks/divisors for the ICST307
- *  clock generators.  See http://www.idt.com/ for more information
- *  on these devices.
+ * Support functions for calculating clocks/divisors for the ICST307
+ * clock generators.  See http://www.idt.com/ for more information
+ * on these devices.
  *
- *  This is an almost identical implementation to the ICST525 clock generator.
- *  The s2div and idx2s files are different
+ * This is an almost identical implementation to the ICST525 clock generator.
+ * The s2div and idx2s files are different
  */
 #include <linux/module.h>
 #include <linux/kernel.h>

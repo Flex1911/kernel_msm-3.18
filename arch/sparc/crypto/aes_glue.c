@@ -12,6 +12,8 @@
  *             Tadeusz Struk (tadeusz.struk@intel.com)
  *             Aidan O'Mahony (aidan.o.mahony@intel.com)
  *    Copyright (c) 2010, Intel Corporation.
+ *
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt

@@ -2,6 +2,8 @@
  * Copyright (c) 2013 Samsung Electronics Co., Ltd.
  *		http://www.samsung.com
  *
+ * Copyright (C) 2018 XiaoMi, Inc.
+ *
  * Amit Daniel Kachhap <amit.daniel@samsung.com>
  *
  * EXYNOS5440 - CPU frequency scaling support

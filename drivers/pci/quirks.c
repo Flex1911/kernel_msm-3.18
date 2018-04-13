@@ -6,6 +6,7 @@
  *  Note: any quirks for hotpluggable devices must _NOT_ be declared __init.
  *
  *  Copyright (c) 1999 Martin Mares <mj@ucw.cz>
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  *  Init/reset quirks for USB host controllers should be in the
  *  USB quirks file, where their drivers can access reuse it.

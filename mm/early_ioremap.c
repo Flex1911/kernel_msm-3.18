@@ -5,6 +5,7 @@
  * This is mostly a direct copy of the x86 early_ioremap implementation.
  *
  * (C) Copyright 1995 1996, 2014 Linus Torvalds
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  */
 #include <linux/kernel.h>

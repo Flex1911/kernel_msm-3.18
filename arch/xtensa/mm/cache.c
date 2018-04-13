@@ -6,6 +6,7 @@
  * for more details.
  *
  * Copyright (C) 2001-2006 Tensilica Inc.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Chris Zankel	<chris@zankel.net>
  * Joe Taylor

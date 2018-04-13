@@ -4,6 +4,7 @@
  * Common interface for making balloon pages movable by compaction.
  *
  * Copyright (C) 2012, Red Hat, Inc.  Rafael Aquini <aquini@redhat.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 #include <linux/mm.h>
 #include <linux/slab.h>

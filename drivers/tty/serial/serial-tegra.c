@@ -4,6 +4,7 @@
  * High-speed serial driver for NVIDIA Tegra SoCs
  *
  * Copyright (c) 2012-2013, NVIDIA CORPORATION.  All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Author: Laxman Dewangan <ldewangan@nvidia.com>
  *

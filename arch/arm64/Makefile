@@ -9,6 +9,7 @@
 # for more details.
 #
 # Copyright (C) 1995-2001 by Russell King
+# Copyright (C) 2018 XiaoMi, Inc.
 
 LDFLAGS_vmlinux	:=-p --no-undefined -X
 CPPFLAGS_vmlinux.lds = -DTEXT_OFFSET=$(TEXT_OFFSET)

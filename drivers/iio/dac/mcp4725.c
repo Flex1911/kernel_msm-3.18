@@ -5,6 +5,7 @@
  *
  * Based on max517 by Roland Stigge <stigge@antcom.de>
  *
+ *
  * This file is subject to the terms and conditions of version 2 of
  * the GNU General Public License.  See the file COPYING in the main
  * directory of this archive for more details.

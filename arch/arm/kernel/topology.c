@@ -3,6 +3,7 @@
  *
  * Copyright (C) 2011 Linaro Limited.
  * Written by: Vincent Guittot
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * based on arch/sh/kernel/topology.c
  *

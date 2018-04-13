@@ -6,6 +6,7 @@
  * Copyright (c) 2007 Keir Fraser, XenSource Inc
  * Copyright (c) 2008 Intel Corporation
  * Copyright 2009 Red Hat, Inc. and/or its affiliates.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

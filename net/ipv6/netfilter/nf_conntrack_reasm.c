@@ -2,6 +2,7 @@
  * IPv6 fragment reassembly for connection tracking
  *
  * Copyright (C)2004 USAGI/WIDE Project
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Author:
  *	Yasuyuki Kozakai @USAGI <yasuyuki.kozakai@toshiba.co.jp>

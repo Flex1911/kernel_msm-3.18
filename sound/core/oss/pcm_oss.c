@@ -1,6 +1,7 @@
 /*
  *  Digital Audio (PCM) abstract layer / OSS compatible
  *  Copyright (c) by Jaroslav Kysela <perex@perex.cz>
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  *
  *   This program is free software; you can redistribute it and/or modify

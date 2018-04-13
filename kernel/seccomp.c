@@ -5,6 +5,7 @@
  *
  * Copyright (C) 2012 Google, Inc.
  * Will Drewry <wad@chromium.org>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This defines a simple but solid secure-computing facility.
  *

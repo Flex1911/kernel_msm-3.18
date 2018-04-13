@@ -60,12 +60,12 @@ Example:
 		qcom,clock-rates = <266670000 0 0 0 0 0 0 0 0>,
 		qcom,vbif-reg-settings = <0x4 0x1>;
 		qcom,prefetch-reg-settings = <0x18c 0x11>,
-			<0x1a0 0x31>,
-			<0x1b0 0x31>;
+				<0x1a0 0x31>,
+				<0x1b0 0x31>;
 		qcom,msm-bus,name = "msm_camera_jpeg_dma";
 		qcom,msm-bus,num-cases = <2>;
 		qcom,msm-bus,num-paths = <1>;
 		qcom,msm-bus,vectors-KBps = <62 512 0 0>,
-			<62 512 666675 666675>;
+				<62 512 666675 666675>;
 		status = "ok";
 	};

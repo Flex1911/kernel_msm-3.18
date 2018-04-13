@@ -6,6 +6,7 @@
  *  Copyright (C) 2002       Dominik Brodowski <devel@brodo.de>
  *  (c) Copyright 2008 Hewlett-Packard Development Company, L.P.
  *	Bjorn Helgaas <bjorn.helgaas@hp.com>
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *

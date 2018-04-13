@@ -2,6 +2,7 @@
  * All the USB notify logic
  *
  * (C) Copyright 2005 Greg Kroah-Hartman <gregkh@suse.de>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * notifier functions originally based on those in kernel/sys.c
  * but fixed up to not be so broken.

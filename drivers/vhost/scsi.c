@@ -3,6 +3,7 @@
  *
  * (C) Copyright 2010-2013 Datera, Inc.
  * (C) Copyright 2010-2012 IBM Corp.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Licensed to the Linux Foundation under the General Public License (GPL) version 2.
  *

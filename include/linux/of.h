@@ -5,6 +5,7 @@
  * Power Macintosh and other computers.
  *
  * Copyright (C) 1996-2005 Paul Mackerras.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Updates for PPC64 by Peter Bergner & David Engebretsen, IBM Corp.
  * Updates for SPARC64 by David S. Miller
@@ -797,7 +798,7 @@ static inline int of_property_read_s32(const struct device_node *np,
 				       const char *propname,
 				       s32 *out_value)
 {
-	return of_property_read_u32(np, propname, (u32*) out_value);
+	return of_property_read_u32(np, propname, (u32 *) out_value);
 }
 
 #define of_property_for_each_u32(np, propname, prop, p, u)	\

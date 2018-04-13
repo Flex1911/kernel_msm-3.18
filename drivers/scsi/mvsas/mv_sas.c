@@ -4,6 +4,7 @@
  * Copyright 2007 Red Hat, Inc.
  * Copyright 2008 Marvell. <kewei@marvell.com>
  * Copyright 2009-2011 Marvell. <yuxiangl@marvell.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is licensed under GPLv2.
  *

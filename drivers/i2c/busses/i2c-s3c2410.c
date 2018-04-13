@@ -3,6 +3,8 @@
  * Copyright (C) 2004,2005,2009 Simtec Electronics
  *	Ben Dooks <ben@simtec.co.uk>
  *
+ * Copyright (C) 2018 XiaoMi, Inc.
+ *
  * S3C2410 I2C Controller
  *
  * This program is free software; you can redistribute it and/or modify

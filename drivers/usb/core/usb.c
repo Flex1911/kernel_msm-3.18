@@ -11,6 +11,7 @@
  * (C) Copyright Yggdrasil Computing, Inc. 2000
  *     (usb_device_id matching changes by Adam J. Richter)
  * (C) Copyright Greg Kroah-Hartman 2002-2003
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * NOTE! This is not actually a driver at all, rather this is
  * just a collection of helper routines that implement the

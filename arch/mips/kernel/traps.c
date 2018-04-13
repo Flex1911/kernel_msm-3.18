@@ -11,6 +11,7 @@
  * Copyright (C) 2002, 2003, 2004, 2005, 2007  Maciej W. Rozycki
  * Copyright (C) 2000, 2001, 2012 MIPS Technologies, Inc.  All rights reserved.
  * Copyright (C) 2014, Imagination Technologies Ltd.
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 #include <linux/bug.h>
 #include <linux/compiler.h>

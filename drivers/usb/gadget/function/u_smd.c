@@ -2,6 +2,7 @@
  * u_smd.c - utilities for USB gadget serial over smd
  *
  * Copyright (c) 2011, 2013-2016, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This code also borrows from drivers/usb/gadget/u_serial.c, which is
  * Copyright (C) 2000 - 2003 Al Borchers (alborchers@steinerpoint.com)

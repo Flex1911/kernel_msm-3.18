@@ -2,6 +2,7 @@
  * Support for common PCI multi-I/O cards (which is most of them)
  *
  * Copyright (C) 2001  Tim Waugh <twaugh@redhat.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License

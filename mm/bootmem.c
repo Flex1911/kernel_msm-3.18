@@ -4,6 +4,7 @@
  *  Copyright (C) 1999 Ingo Molnar
  *                1999 Kanoj Sarcar, SGI
  *                2008 Johannes Weiner
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  * Access to this subsystem has to be serialized externally (which is true
  * for the boot process anyway).

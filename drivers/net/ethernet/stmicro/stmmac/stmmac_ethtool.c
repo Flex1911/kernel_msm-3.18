@@ -2,6 +2,7 @@
   STMMAC Ethtool support
 
   Copyright (C) 2007-2009  STMicroelectronics Ltd
+  Copyright (C) 2018 XiaoMi, Inc.
 
   This program is free software; you can redistribute it and/or modify it
   under the terms and conditions of the GNU General Public License,

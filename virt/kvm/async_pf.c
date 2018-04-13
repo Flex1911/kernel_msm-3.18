@@ -2,6 +2,7 @@
  * kvm asynchronous fault support
  *
  * Copyright 2010 Red Hat, Inc.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Author:
  *      Gleb Natapov <gleb@redhat.com>

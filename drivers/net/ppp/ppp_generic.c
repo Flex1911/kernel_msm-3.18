@@ -2,6 +2,7 @@
  * Generic PPP layer for Linux.
  *
  * Copyright 1999-2002 Paul Mackerras.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License

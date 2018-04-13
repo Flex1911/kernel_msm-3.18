@@ -4,6 +4,7 @@
  * Copyright (C) 2011 Jean-François Moine (http://moinejf.free.fr)
  * Copyright (C) 2009 Anders Blomdell (anders.blomdell@control.lth.se)
  * Copyright (C) 2008 Thomas Champagne (lafeuil@gmail.com)
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

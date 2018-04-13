@@ -1,4 +1,5 @@
 /* Copyright (c) 2002,2007-2017 The Linux Foundation. All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -314,7 +315,7 @@ kgsl_sharedmem_init_sysfs(void)
 }
 
 static int kgsl_cma_alloc_secure(struct kgsl_device *device,
-			struct kgsl_memdesc *memdesc, uint64_t size);
+				struct kgsl_memdesc *memdesc, uint64_t size);
 
 static int kgsl_allocate_secure(struct kgsl_device *device,
 				struct kgsl_memdesc *memdesc,

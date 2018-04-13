@@ -16,11 +16,11 @@ Optional properties:
 Example:
 
 qcom,ir-cut@60 {
-		cell-index = <0>;
-		compatible = "qcom,ir-cut";
-		label = "led-ir-label";
-		gpios = <&tlmm 60 0>;
-		qcom,gpio-req-tbl-num = <0>;
-		qcom,gpio-req-tbl-flags = <0>;
-		qcom,gpio-req-tbl-label = "LED_IR_EN";
-	};
+	cell-index = <0>;
+	compatible = "qcom,ir-cut";
+	label = "led-ir-label";
+	gpios = <&tlmm 60 0>;
+	qcom,gpio-req-tbl-num = <0>;
+	qcom,gpio-req-tbl-flags = <0>;
+	qcom,gpio-req-tbl-label = "LED_IR_EN";
+};

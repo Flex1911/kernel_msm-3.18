@@ -11,6 +11,7 @@
  *
  * This file used out-of-tree driver i2c-rcar.c
  * Copyright (C) 2011-2012 Renesas Electronics Corporation
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

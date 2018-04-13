@@ -3,6 +3,7 @@
  * Copyright (c) 2001 Nokia, Inc.
  * Copyright (c) 2001 La Monte H.P. Yarroll
  * Copyright (c) 2002-2003 Intel Corp.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is part of the SCTP kernel implementation
  *

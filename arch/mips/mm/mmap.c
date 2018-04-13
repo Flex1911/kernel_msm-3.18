@@ -5,6 +5,7 @@
  *
  * Copyright (C) 2011 Wind River Systems,
  *   written by Ralf Baechle <ralf@linux-mips.org>
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 #include <linux/compiler.h>
 #include <linux/errno.h>

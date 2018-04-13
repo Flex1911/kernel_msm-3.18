@@ -2,6 +2,7 @@
  * Copyright (C) 2010 IBM Corporation
  * Copyright (C) 2010 Politecnico di Torino, Italy
  *                    TORSEC group -- http://security.polito.it
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Authors:
  * Mimi Zohar <zohar@us.ibm.com>

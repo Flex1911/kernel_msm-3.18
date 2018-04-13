@@ -16,6 +16,7 @@
  *
  * Authors: Hollis Blanchard <hollisb@us.ibm.com>
  *          Christian Ehrhardt <ehrhardt@linux.vnet.ibm.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #include <linux/errno.h>

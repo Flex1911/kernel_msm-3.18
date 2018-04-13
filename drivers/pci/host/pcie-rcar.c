@@ -6,6 +6,7 @@
  *  arch/sh/drivers/pci/pcie-sh7786.c
  *  arch/sh/drivers/pci/ops-sh7786.c
  *  Copyright (C) 2009 - 2011  Paul Mundt
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is licensed under the terms of the GNU General Public
  * License version 2.  This program is licensed "as is" without any

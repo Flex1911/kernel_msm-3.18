@@ -3,6 +3,7 @@
  *
  * Copyright (C) 2012 ARM Limited
  * Author: Will Deacon <will.deacon@arm.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This code is based heavily on the ARMv7 perf event code.
  *

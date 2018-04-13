@@ -7,6 +7,7 @@
  *
  *  Copyright 2003-2004 Red Hat, Inc.  All rights reserved.
  *  Copyright 2003-2004 Jeff Garzik
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  *
  *  This program is free software; you can redistribute it and/or modify

@@ -3,6 +3,7 @@
  *  Copyright (c) 2013 Synaptics Incorporated
  *  Copyright (c) 2014 Benjamin Tissoires <benjamin.tissoires@gmail.com>
  *  Copyright (c) 2014 Red Hat, Inc
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free

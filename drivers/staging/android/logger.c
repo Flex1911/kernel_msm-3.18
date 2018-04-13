@@ -4,6 +4,7 @@
  * A Logging Subsystem
  *
  * Copyright (C) 2007-2008 Google, Inc.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Robert Love <rlove@google.com>
  *

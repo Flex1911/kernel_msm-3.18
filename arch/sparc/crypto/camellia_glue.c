@@ -1,6 +1,7 @@
 /* Glue code for CAMELLIA encryption optimized for sparc64 crypto opcodes.
  *
  * Copyright (C) 2012 David S. Miller <davem@davemloft.net>
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt

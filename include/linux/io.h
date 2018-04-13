@@ -1,5 +1,6 @@
 /*
  * Copyright 2006 PathScale, Inc.  All Rights Reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is free software; you can redistribute it and/or modify
  * it under the terms of version 2 of the GNU General Public License
@@ -104,7 +105,7 @@ static inline void arch_phys_wc_del(int handle)
 #ifndef arch_phys_wc_index
 static inline int arch_phys_wc_index(int handle)
 {
-	return -1;
+	return -EPERM;
 }
 #define arch_phys_wc_index arch_phys_wc_index
 #endif

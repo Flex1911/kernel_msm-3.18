@@ -3,6 +3,7 @@
  *
  * Copyright (C) 1998-2009 Texas Instruments. All rights reserved.
  * Copyright (C) 2008-2010 Nokia Corporation
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Contact: Luciano Coelho <luciano.coelho@nokia.com>
  *

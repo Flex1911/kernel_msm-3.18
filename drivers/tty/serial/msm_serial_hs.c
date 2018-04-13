@@ -5,6 +5,7 @@
  * Copyright (c) 2008 Google Inc.
  * Copyright (c) 2007-2016, The Linux Foundation. All rights reserved.
  * Modified: Nick Pelly <npelly@google.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * All source code in this file is licensed under the following license
  * except where indicated.

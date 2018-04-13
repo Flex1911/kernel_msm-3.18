@@ -7,6 +7,7 @@
  *                    PeiSen Hou <pshou@realtek.com.tw>
  *                    Takashi Iwai <tiwai@suse.de>
  *                    Jonathan Woithe <jwoithe@just42.net>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  *  This driver is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

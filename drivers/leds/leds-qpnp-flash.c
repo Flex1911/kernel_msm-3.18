@@ -1,5 +1,5 @@
 /* Copyright (c) 2014-2017, The Linux Foundation. All rights reserved.
- *
+ * Copyright (C) 2018 XiaoMi, Inc.
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
  * only version 2 as published by the Free Software Foundation.
@@ -29,7 +29,7 @@
 #include "leds.h"
 #include <linux/debugfs.h>
 #include <linux/uaccess.h>
-
+#include <linux/string.h>
 #define FLASH_LED_PERIPHERAL_SUBTYPE(base)			(base + 0x05)
 #define FLASH_SAFETY_TIMER(base)				(base + 0x40)
 #define FLASH_MAX_CURRENT(base)					(base + 0x41)
@@ -171,6 +171,9 @@ struct flash_regulator_data {
 	u32			max_volt_uv;
 };
 
+char flashlight[]={"flashlight"};
+char flashlight_switch[]={"led:switch"};
+struct led_trigger *flashlight_switch_trigger=NULL;
 /*
  * Configurations for each individual LED
  */
@@ -1837,19 +1840,18 @@ static void qpnp_flash_led_brightness_set(struct led_classdev *led_cdev,
 			flash_node->flash_on = value ? true : false;
 			if (value)
 				led->flash_node[led->num_leds - 1].trigger |=
-						(0x80 >> flash_node->id);
-			else
+					(0x80 >> flash_node->id);
+                        else
 				led->flash_node[led->num_leds - 1].trigger &=
-						~(0x80 >> flash_node->id);
+					~(0x80 >> flash_node->id);
 
 			if (flash_node->id == FLASH_LED_0)
-				led->flash_node[led->num_leds - 1].
+			led->flash_node[led->num_leds - 1].
 				prgm_current = flash_node->prgm_current;
 			else if (flash_node->id == FLASH_LED_1)
 				led->flash_node[led->num_leds - 1].
 				prgm_current2 =
 				flash_node->prgm_current;
-
 			return;
 		} else if (flash_node->id == FLASH_LED_SWITCH) {
 			if (!value) {
@@ -1867,6 +1869,15 @@ static void qpnp_flash_led_brightness_set(struct led_classdev *led_cdev,
 
 	return;
 }
+
+/* lancelot add for mi flashlight*/
+static void mido_flash_led_brightness_set(struct led_classdev *led_cdev,
+						enum led_brightness value)
+{
+	qpnp_flash_led_brightness_set(led_cdev,value);
+	led_trigger_event(flashlight_switch_trigger,(value?1:0));
+}
+/* lancelot add end*/
 
 static int qpnp_flash_led_init_settings(struct qpnp_flash_led *led)
 {
@@ -2531,6 +2542,10 @@ static int qpnp_flash_led_probe(struct spmi_device *spmi)
 			return rc;
 		}
 
+		if( !strncmp(led->flash_node[i].cdev.name,flashlight,strlen(flashlight)) ) {
+			led->flash_node[i].cdev.brightness_set = mido_flash_led_brightness_set;
+		}
+
 		rc = of_property_read_string(temp, "qcom,default-led-trigger",
 				&led->flash_node[i].cdev.default_trigger);
 		if (rc < 0) {
@@ -2555,6 +2570,10 @@ static int qpnp_flash_led_probe(struct spmi_device *spmi)
 		if (rc) {
 			dev_err(&spmi->dev, "Unable to register led\n");
 			goto error_led_register;
+		}
+		if( !strncmp(led->flash_node[i].cdev.name,flashlight_switch,strlen(flashlight_switch)) ) 
+		{
+			flashlight_switch_trigger=led->flash_node[i].cdev.trigger;
 		}
 
 		led->flash_node[i].cdev.dev->of_node = temp;

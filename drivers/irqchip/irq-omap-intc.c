@@ -4,6 +4,7 @@
  * Interrupt handler for OMAP2 boards.
  *
  * Copyright (C) 2005 Nokia Corporation
+ * Copyright (C) 2018 XiaoMi, Inc.
  * Author: Paul Mundt <paul.mundt@nokia.com>
  *
  * This file is subject to the terms and conditions of the GNU General Public

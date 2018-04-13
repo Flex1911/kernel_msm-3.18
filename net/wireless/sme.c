@@ -5,6 +5,7 @@
  *
  * Copyright 2009	Johannes Berg <johannes@sipsolutions.net>
  * Copyright (C) 2009   Intel Corporation. All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #include <linux/etherdevice.h>

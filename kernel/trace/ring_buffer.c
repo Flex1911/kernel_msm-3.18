@@ -2,6 +2,7 @@
  * Generic ring buffer
  *
  * Copyright (C) 2008 Steven Rostedt <srostedt@redhat.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 #include <linux/ftrace_event.h>
 #include <linux/ring_buffer.h>

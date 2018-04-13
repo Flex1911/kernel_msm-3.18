@@ -4,6 +4,7 @@
  * Copyright (C) 2004-2007 Texas Instruments
  * Copyright (C) 2008 Nokia Corporation
  * Contact: Felipe Balbi <felipe.balbi@nokia.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

@@ -3,6 +3,7 @@
  *
  * Copyright IBM Corp. 2007
  * Author(s): Stefan Weinhuber <wein@de.ibm.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #define KMSG_COMPONENT "dasd-eckd"

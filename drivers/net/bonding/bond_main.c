@@ -3,6 +3,7 @@
  *
  * Copyright 1999, Thomas Davis, tadavis@lbl.gov.
  * Licensed under the GPL. Based on dummy.c, and eql.c devices.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * bonding.c: an Ethernet Bonding driver
  *

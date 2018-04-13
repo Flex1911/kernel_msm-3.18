@@ -2,6 +2,7 @@
  * phy-core.c  --  Generic Phy framework.
  *
  * Copyright (C) 2013 Texas Instruments Incorporated - http://www.ti.com
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Author: Kishon Vijay Abraham I <kishon@ti.com>
  *

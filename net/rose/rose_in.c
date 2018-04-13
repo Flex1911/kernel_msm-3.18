@@ -5,6 +5,7 @@
  * (at your option) any later version.
  *
  * Copyright (C) Jonathan Naylor G4KLX (g4klx@g4klx.demon.co.uk)
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Most of this code is based on the SDL diagrams published in the 7th ARRL
  * Computer Networking Conference papers. The diagrams have mistakes in them,

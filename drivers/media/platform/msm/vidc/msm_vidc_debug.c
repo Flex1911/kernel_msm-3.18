@@ -1,4 +1,5 @@
 /* Copyright (c) 2012-2017, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -295,10 +296,10 @@ static int publish_unreleased_reference(struct msm_vidc_inst *inst,
 }
 void put_inst_helper(struct kref *kref)
 {
-        struct msm_vidc_inst *inst = container_of(kref,
-                        struct msm_vidc_inst, kref);
+		 struct msm_vidc_inst *inst = container_of(kref,
+						struct msm_vidc_inst, kref);
 
-        msm_vidc_destroy(inst);
+		 msm_vidc_destroy(inst);
 }
 static ssize_t inst_info_read(struct file *file, char __user *buf,
 		size_t count, loff_t *ppos)
@@ -336,7 +337,7 @@ static ssize_t inst_info_read(struct file *file, char __user *buf,
 	if (!dbuf) {
 		dprintk(VIDC_ERR, "%s: Allocation failed!\n", __func__);
 		len = -ENOMEM;
-                goto failed_alloc;
+		goto failed_alloc;
 	}
 	cur = dbuf;
 	end = cur + MAX_DBG_BUF_SIZE;
@@ -391,7 +392,7 @@ static ssize_t inst_info_read(struct file *file, char __user *buf,
 
 	kfree(dbuf);
 failed_alloc:
-        kref_put(&inst->kref, put_inst_helper);
+		 kref_put(&inst->kref, put_inst_helper);
 	return len;
 }
 

@@ -6,6 +6,7 @@
  * Author: Pawel Osciak <pawel@osciak.com>
  *	   Marek Szyprowski <m.szyprowski@samsung.com>
  *
+ *
  * The vb2_thread implementation was based on code from videobuf-dvb.c:
  *	(c) 2004 Gerd Knorr <kraxel@bytesex.org> [SUSE Labs]
  *

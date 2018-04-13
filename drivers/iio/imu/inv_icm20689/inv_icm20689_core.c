@@ -14,6 +14,7 @@
 * drivers/iio/imu/inv_mpu6050/inv_mpu_core.c
 *
 * Copyright (C) 2012 Invensense, Inc.
+* Copyright (C) 2018 XiaoMi, Inc.
 *
 * This software is licensed under the terms of the GNU General Public
 * License version 2, as published by the Free Software Foundation, and

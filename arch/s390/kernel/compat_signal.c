@@ -3,9 +3,9 @@
  *    Author(s): Denis Joseph Barrow (djbarrow@de.ibm.com,barrow_dj@yahoo.com)
  *               Gerhard Tonn (ton@de.ibm.com)                  
  *
- *  Copyright (C) 1991, 1992  Linus Torvalds
+ *    Copyright (C) 1991, 1992  Linus Torvalds
  *
- *  1997-11-28  Modified for POSIX.1b signals by Richard Henderson
+ *    1997-11-28  Modified for POSIX.1b signals by Richard Henderson
  */
 
 #include <linux/compat.h>

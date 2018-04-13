@@ -6,6 +6,7 @@
  *
  * Copyright (c) 2012 Marvell Technology Ltd.
  * Yunfan Zhang <yfzhang@marvell.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This package is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as

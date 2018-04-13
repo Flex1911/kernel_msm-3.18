@@ -5,6 +5,7 @@
  *
  * Authors :	Jean Tourrilhes - HPL - <jt@hpl.hp.com>
  * Copyright (c) 2001-2007 Jean Tourrilhes, All Rights Reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  */
 
 #ifndef _IW_HANDLER_H

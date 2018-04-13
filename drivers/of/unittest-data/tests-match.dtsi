@@ -1,4 +1,3 @@
-
 / {
 	testcase-data {
 		match-node {
@@ -15,5 +14,6 @@
 			name8 { compatible = "compat2"; device_type = "type1"; };
 			name9 { compatible = "compat2"; };
 		};
-	};
+	   };
 };
+

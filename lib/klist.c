@@ -2,6 +2,7 @@
  * klist.c - Routines for manipulating klists.
  *
  * Copyright (C) 2005 Patrick Mochel
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is released under the GPL v2.
  *

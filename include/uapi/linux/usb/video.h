@@ -2,6 +2,7 @@
  * USB Video Class definitions.
  *
  * Copyright (C) 2009 Laurent Pinchart <laurent.pinchart@skynet.be>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file holds USB constants and structures defined by the USB Device
  * Class Definition for Video Devices. Unless otherwise stated, comments

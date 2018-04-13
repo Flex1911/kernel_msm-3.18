@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2002-2005, K A Fraser
  * Copyright (c) 2005, XenSource Ltd
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2

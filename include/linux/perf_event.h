@@ -4,6 +4,7 @@
  *    Copyright (C) 2008-2009, Thomas Gleixner <tglx@linutronix.de>
  *    Copyright (C) 2008-2011, Red Hat, Inc., Ingo Molnar
  *    Copyright (C) 2008-2011, Red Hat, Inc., Peter Zijlstra
+ *    Copyright (C) 2018 XiaoMi, Inc.
  *
  * Data type definitions, declarations, prototypes.
  *

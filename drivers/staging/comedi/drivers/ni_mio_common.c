@@ -5,6 +5,7 @@
     COMEDI - Linux Control and Measurement Device Interface
     Copyright (C) 1997-2001 David A. Schleef <ds@schleef.org>
     Copyright (C) 2002-2006 Frank Mori Hess <fmhess@users.sourceforge.net>
+    Copyright (C) 2018 XiaoMi, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

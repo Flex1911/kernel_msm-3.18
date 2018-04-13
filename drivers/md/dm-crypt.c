@@ -3,6 +3,7 @@
  * Copyright (C) 2004 Clemens Fruhwirth <clemens@endorphin.org>
  * Copyright (C) 2006-2009 Red Hat, Inc. All rights reserved.
  * Copyright (C) 2013 Milan Broz <gmazyland@gmail.com>
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is released under the GPL.
  */

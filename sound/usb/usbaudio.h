@@ -4,6 +4,7 @@
  *   (Tentative) USB Audio Driver for ALSA
  *
  *   Copyright (c) 2002 by Takashi Iwai <tiwai@suse.de>
+ *   Copyright (C) 2018 XiaoMi, Inc.
  *
  *
  *   This program is free software; you can redistribute it and/or modify

@@ -13,6 +13,7 @@
  * Derived from book3s_rmhandlers.S and other files, which are:
  *
  * Copyright SUSE Linux Products GmbH 2009
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Authors: Alexander Graf <agraf@suse.de>
  */

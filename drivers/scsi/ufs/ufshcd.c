@@ -4,6 +4,7 @@
  * This code is based on drivers/scsi/ufs/ufshcd.c
  * Copyright (C) 2011-2013 Samsung India Software Operations
  * Copyright (c) 2013-2016, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * Authors:
  *	Santosh Yaraganavi <santosh.sy@samsung.com>
@@ -42,6 +43,7 @@
 #include <linux/devfreq.h>
 #include <linux/nls.h>
 #include <linux/of.h>
+
 #include "ufshcd.h"
 #include "ufshci.h"
 #include "ufs_quirks.h"
@@ -3368,6 +3370,10 @@ int ufshcd_read_device_desc(struct ufs_hba *hba, u8 *buf, u32 size)
 {
 	return ufshcd_read_desc(hba, QUERY_DESC_IDN_DEVICE, 0, buf, size);
 }
+
+
+
+
 
 /**
  * ufshcd_read_string_desc - read string descriptor
@@ -6799,6 +6805,106 @@ static void ufshcd_apply_pm_quirks(struct ufs_hba *hba)
 	}
 }
 
+#if 0
+static int ufs_export_hwinfo(struct ufs_hba *hba)
+{
+	int err;
+	u8 model_index;
+	u8 str_desc_buf[QUERY_DESC_STRING_MAX_SIZE + 1];
+	u8 desc_buf[QUERY_DESC_DEVICE_MAX_SIZE];
+	u8 tmp[QUERY_DESC_STRING_MAX_SIZE] = {0};
+	u16 device_val;
+
+	err = ufshcd_read_device_desc(hba, desc_buf,
+					QUERY_DESC_DEVICE_MAX_SIZE);
+	if (err) {
+		printk("read device_desc failed\n");
+		goto out;
+	}
+	 if (register_hw_component_info("UFS")) {
+		printk("register_hw_component_info failed\n");
+			 goto out;
+	 }
+
+	/*ManufacturerName*/
+	model_index = desc_buf[DEVICE_DESC_PARAM_MANF_NAME];
+	memset(str_desc_buf, 0, QUERY_DESC_STRING_MAX_SIZE);
+	err = ufshcd_read_string_desc(hba, model_index, str_desc_buf,
+					QUERY_DESC_STRING_MAX_SIZE, ASCII_STD);
+	if (err)
+		goto out;
+
+	str_desc_buf[QUERY_DESC_STRING_MAX_SIZE] = '\0';
+	strlcpy(tmp, (str_desc_buf + QUERY_DESC_HDR_SIZE),
+		min_t(u8, str_desc_buf[QUERY_DESC_LENGTH_OFFSET],
+			  8));
+	tmp[8] = '\0';
+	add_hw_component_info("UFS", "ManufacturerName", tmp);
+
+	/*big endian format  wmanufacturerid*/
+	device_val = desc_buf[DEVICE_DESC_PARAM_MANF_ID] << 8 |
+				     desc_buf[DEVICE_DESC_PARAM_MANF_ID + 1];
+	snprintf(tmp, QUERY_DESC_STRING_MAX_SIZE, "0x%x", device_val);
+	add_hw_component_info("UFS", "wmanufacturerid", tmp);
+
+	/*ProductName*/
+	model_index = desc_buf[DEVICE_DESC_PARAM_PRDCT_NAME];
+	memset(str_desc_buf, 0, QUERY_DESC_STRING_MAX_SIZE);
+	err = ufshcd_read_string_desc(hba, model_index, str_desc_buf,
+					QUERY_DESC_STRING_MAX_SIZE, ASCII_STD);
+	if (err)
+		goto out;
+
+	str_desc_buf[QUERY_DESC_STRING_MAX_SIZE] = '\0';
+	strlcpy(tmp, (str_desc_buf + QUERY_DESC_HDR_SIZE),
+		min_t(u8, str_desc_buf[QUERY_DESC_LENGTH_OFFSET],
+		      MAX_MODEL_LEN));
+	tmp[MAX_MODEL_LEN] = '\0';
+	add_hw_component_info("UFS", "ProductName", tmp);
+
+	/*SerialNumber*/
+	model_index = desc_buf[DEVICE_DESC_PARAM_SN];
+	memset(str_desc_buf, 0, QUERY_DESC_STRING_MAX_SIZE);
+	err = ufshcd_read_string_desc(hba, model_index, str_desc_buf,
+					QUERY_DESC_STRING_MAX_SIZE, ASCII_STD);
+	if (err)
+		goto out;
+
+	str_desc_buf[QUERY_DESC_STRING_MAX_SIZE] = '\0';
+	strlcpy(tmp, (str_desc_buf + QUERY_DESC_HDR_SIZE),
+		min_t(u8, str_desc_buf[QUERY_DESC_LENGTH_OFFSET],
+		      126));
+	tmp[126] = '\0';
+	add_hw_component_info("UFS", "SerialNumber", tmp);
+
+	/*FwVersion*/
+	model_index = desc_buf[0x2A];
+
+	memset(str_desc_buf, 0, QUERY_DESC_STRING_MAX_SIZE);
+	err = ufshcd_read_string_desc(hba, model_index, str_desc_buf,
+					QUERY_DESC_STRING_MAX_SIZE, ASCII_STD);
+	if (err)
+		goto out;
+
+	str_desc_buf[QUERY_DESC_STRING_MAX_SIZE] = '\0';
+	strlcpy(tmp, (str_desc_buf + QUERY_DESC_HDR_SIZE),
+		min_t(u8, str_desc_buf[QUERY_DESC_LENGTH_OFFSET],
+		      4));
+	tmp[4] = '\0';
+	add_hw_component_info("UFS", "FwVersion", tmp);
+
+	/*big endian format  BCD_version*/
+	device_val = desc_buf[DEVICE_DESC_PARAM_MANF_DATE] << 8 |
+				     desc_buf[DEVICE_DESC_PARAM_MANF_DATE + 1];
+	memset(tmp, 0, QUERY_DESC_STRING_MAX_SIZE);
+	snprintf(tmp, QUERY_DESC_STRING_MAX_SIZE, "%d", device_val);
+	add_hw_component_info("UFS", "BCD_version", tmp);
+
+out:
+	return err;
+}
+#endif
+
 /**
  * ufshcd_probe_hba - probe hba to detect device and initialize
  * @hba: per-adapter instance
@@ -6832,6 +6938,7 @@ static int ufshcd_probe_hba(struct ufs_hba *hba)
 		goto out;
 
 	ufs_advertise_fixup_device(hba);
+
 	ufshcd_tune_unipro_params(hba);
 
 	ufshcd_apply_pm_quirks(hba);
@@ -8534,6 +8641,11 @@ int ufshcd_shutdown(struct ufs_hba *hba)
 }
 EXPORT_SYMBOL(ufshcd_shutdown);
 
+
+
+
+
+
 /**
  * ufshcd_remove - de-allocate SCSI host and host memory space
  *		data structure memory
@@ -8554,6 +8666,7 @@ void ufshcd_remove(struct ufs_hba *hba)
 	}
 	ufshcd_hba_exit(hba);
 	ufsdbg_remove_debugfs(hba);
+
 }
 EXPORT_SYMBOL_GPL(ufshcd_remove);
 

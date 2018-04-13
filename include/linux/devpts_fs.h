@@ -3,6 +3,7 @@
  * linux/include/linux/devpts_fs.h
  *
  *  Copyright 1998-2004 H. Peter Anvin -- All Rights Reserved
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  * This file is part of the Linux kernel and is made available under
  * the terms of the GNU General Public License, version 2, or at your

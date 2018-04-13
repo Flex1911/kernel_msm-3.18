@@ -2,6 +2,7 @@
  * AT86RF230/RF231 driver
  *
  * Copyright (C) 2009-2012 Siemens AG
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2

@@ -7,6 +7,7 @@
  *  Copyright (c) 2008 NVIDIA Corp.  All rights reserved.
  *  Copyright (c) 2008 Wei Ni <wni@nvidia.com>
  *  Copyright (c) 2013 Anssi Hannula <anssi.hannula@iki.fi>
+ *  Copyright (C) 2018 XiaoMi, Inc.
  *
  *  Authors:
  *			Wu Fengguang <wfg@linux.intel.com>
